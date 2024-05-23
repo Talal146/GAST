@@ -1,14 +1,34 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: grey;
 }
 
 a {
   color: #00B7FF;
 }
 
+img {
+  position: relative;
+  margin-top: 13vh;
+}
+
 nav {
   padding-left: 3vh;
   display: flex;
-  background-color: blue;
+  background-color: rgba(0, 0, 0, 0.404);
   height: 8vh;
+  width: 100%;
+}
+
+div > h2 {
+  text-align: center;
+
+}
+
+.software {
+  display: flex;
+  border-radius: 12px;
+  background-color: red;
+  height: 30vh;
+  width: 30vh;
 }
