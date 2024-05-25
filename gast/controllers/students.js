@@ -4,17 +4,11 @@ const newStudent = (req, res) => {
 	res.render('students/new');
 }
 
-const index = async (req, res, next) => {
-  try {
-      const students = await Student.find({});
-      res.render('students/index', {students});
-      console.log(students)
-  }
-  catch (err) {
-       next(err);
-  }};
+const grade = (req, res) => {
+	res.render('students/grade');
+}
 
-  const create = async(req, res) => {
+const create = async(req, res) => {
     try {
       Student.create(req.body)
       req.body.details = !!req.body.details;
@@ -38,10 +32,24 @@ const index = async (req, res, next) => {
         }
   }
 
+const index = async (req, res, next) => {
+  try {
+      const students = await Student.find({});
+      res.render('students/', {students});
+      console.log(students)
+  }
+  catch (err) {
+       next(err);
+  }};
+
+async function show(req, res) {
+    res.render('students/show', { title: 'Planet details', Student});
+  }
 
   module.exports = {
     new: newStudent,
+    grade,
     create,
     index,
-    
+    show    
   };

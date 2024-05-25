@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+<form action="/students/grade" method="POST">
+    <h2>Grade</h2>
+    <ul>
+    <li><label for="project">Project:</li>
+      <input id="project" type="number" name="project">
+    </label><br>
+    <li><label>Hw1:</li>
+      <input id="hw1" type="number" name="hw1">
+    </label><br>
+    <li><label for ="hw2">Hw2:</li>
+      <input id="hw2" type="number" name="hw2">
+      <li><label for ="grade">Grade:</li>
+        <input id="grade" type="number" name="grade">
+    <li><label>Detalis Avaliable:
+        <input id="check" type="checkbox" name="Detalis" value=false checked>
+    </label><br></li>
+    <button id="submit" type="submit">ADD GRADE</button>
+  </ul>
+  </form>
