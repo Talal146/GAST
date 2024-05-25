@@ -1,41 +1,56 @@
 <%- include('../partials/header') %>
+<link rel='stylesheet' href='/stylesheets1/style.css' />
+<nav>
+  <a href="/students/new"><button id="ADD" type="submit">ADD STUDENT</button></a>
+  <a href="/students"><button id="ADDALL" type="submit">ALL STUDENTS</button></a>
+  <img src = "">
+
+</nav>
+<section id="show-page">
+  <h2>Course Details:</h2>
+  <div>Course-Name: <%= //Course.name %></div>
+  <div>members: <%= //Course.members %></div>
+  <div>Duration: <%= //Course.duration %> </div>
+  <div>Details: <%= //Course.details ? 'Yes' : 'Nope' %></div>
+
+</section>
+</form>
 <h2>Instructor Details</h2>
 <table id="list">
   <thead>
     <tr>
       <th>Name</th>
       <th>Email</th>
-      <th>Phone-number</th>
+      <th>Phone-Number</th>
     </tr>
   </thead>
   <tbody>
-        <% instructors.forEach( Instructor => { %>
-        <tr>
-        <td><%= Student.name %></td>
-        <td><%= Student.email %></td>
-        <td><%= Student.phone %></td>
-        </tr>
-        <% }); %>
-  </tbody>
-</table>
-
-<h2>Student Report</h2>
-<table id="list">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Total-Grade</th>
-      <th>Attendance</th>
-    </tr>
-  </thead>
-  <tbody>
-        <% students.forEach( Student => { %>
         <tr>
         <td><%= Student.name %></td>
         <td><%= Student.grade %></td>
         <td><%= Student.attendance %></td>
         </tr>
-        <% }); %>
+
+  </tbody>
+</table>
+
+<%- include('../partials/footer') %>
+<h2>Student Report</h2>
+<table id="list">
+  <thead>
+    <tr>
+      <th>Name<br><a href="/students">Details</a></br></th>
+      <th>Grade (%)<br><a href="/students/grade">Details</a></br></th>
+      <th>Attendance (%)<br><a href="">Details</a></br></th>
+    </tr>
+  </thead>
+  <tbody>
+        <tr>
+        <td><%= Student.name %></td>
+        <td><%= Student.grade %></td>
+        <td><%= Student.attendance %></td>
+        </tr>
+
   </tbody>
 </table>
 

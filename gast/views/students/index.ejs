@@ -6,8 +6,7 @@
       <th>Name</th>
       <th>Email</th>
       <th>Phone</th>
-      <th>Homework</th>
-      <th>Project</th>
+      <th>details</th>
     </tr>
   </thead>
   <tbody>
@@ -16,8 +15,9 @@
         <td><%= Student.name %></td>
         <td><%= Student.email %></td>
         <td><%= Student.phone %></td>
-        <td><%= Student.homework %></td>
-        <td><%= Student.project ? 'Yes' : 'No' %></td>
+        <td><%= Student.details ? 'Yes' : 'No' %></td>
+        <td><a href="/students/<%= Student._id %>">Information</a></td>
+
         </tr>
         <% }); %>
   </tbody>
