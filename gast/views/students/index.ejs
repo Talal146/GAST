@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+<h2>Students List</h2>
+<table id="list">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Homework</th>
+      <th>Project</th>
+    </tr>
+  </thead>
+  <tbody>
+        <% students.forEach( Student => { %>
+        <tr>
+        <td><%= Student.name %></td>
+        <td><%= Student.email %></td>
+        <td><%= Student.phone %></td>
+        <td><%= Student.homework %></td>
+        <td><%= Student.project ? 'Yes' : 'No' %></td>
+        </tr>
+        <% }); %>
+  </tbody>
+</table>
+
+<%- include('../partials/footer') %>

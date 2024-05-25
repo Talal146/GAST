@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+<h2>Instructor Details</h2>
+<table id="list">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone-number</th>
+    </tr>
+  </thead>
+  <tbody>
+        <% instructors.forEach( Instructor => { %>
+        <tr>
+        <td><%= Student.name %></td>
+        <td><%= Student.email %></td>
+        <td><%= Student.phone %></td>
+        </tr>
+        <% }); %>
+  </tbody>
+</table>
+
+<h2>Student Report</h2>
+<table id="list">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Total-Grade</th>
+      <th>Attendance</th>
+    </tr>
+  </thead>
+  <tbody>
+        <% students.forEach( Student => { %>
+        <tr>
+        <td><%= Student.name %></td>
+        <td><%= Student.grade %></td>
+        <td><%= Student.attendance %></td>
+        </tr>
+        <% }); %>
+  </tbody>
+</table>
+
+<%- include('../partials/footer') %>
