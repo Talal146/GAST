@@ -3,17 +3,19 @@ const Student = require('../models/student');
 const User = require('../models/user');
 
 module.exports = {
-  index
+  index,
+  show
 };
 
-
+//display all courses in the home page
 async function index(req, res) {
   const courses = await Course.find({});
   res.render('courses/index', { title: 'All Courses', courses });
 }
 
+
 async function show(req, res) {
-   
+  
     const course = await Course.findById(req.params.id).populate('name');
     const students = await Student.find({});
     const users = await User.find({});
@@ -36,4 +38,7 @@ async function show(req, res) {
     })
     res.render(`couses/${course._id}`, { title:` '${course.name}'`, course, availableStudents,availableUsers });
   }
+
+
+
   

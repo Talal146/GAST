@@ -1,12 +1,18 @@
-var createError = require('http-errors');
+const createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require('dotenv').config();
+require('./config/database');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users')
-var coursesRouter = require('./routes/courses.js')
+var coursesRouter = require('./routes/courses')
+var usersRouter = require('./routes/users');
+var gradesRouter = require('./routes/grades');
+var attendanceouter = require('./routes/attendance');
+var studentsRouter = require('./routes/students');
+
 
 var app = express();
 
@@ -21,8 +27,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/courses', coursesRouter);
+app.use('/', usersRouter);
+app.use('/', gradesRouter);
+app.use('/', attendanceouter);
+app.use('/', studentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
