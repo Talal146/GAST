@@ -5,14 +5,15 @@ const studentSchema = new Schema({
   name: { type: String, required: true },
   email: { type: String, required: true },
   phone: { type: Number, required: true },
-  homework: { type: [Number] ,min:0,max:10},
-  project: { type: [Number],min:0,max:20 },
+  details: { type:Boolean, required: true},
+  
+  homework: { type: [Number] },
+  project: { type: [Number] },
   attendanceObject: {
-    date: { type: Date, required: true },
+    date: { type: Date},
     status: {
       type:Boolean,
       enum: ['true', 'false'],
-      required: true
     }
   }}, 
   {

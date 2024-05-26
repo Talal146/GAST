@@ -7,7 +7,6 @@ require('dotenv').config();
 require('./config/database');
 
 var indexRouter = require('./routes/index');
-var coursesRouter = require('./routes/courses')
 var usersRouter = require('./routes/users');
 var gradesRouter = require('./routes/grades');
 var attendanceouter = require('./routes/attendance');
@@ -27,11 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/courses', coursesRouter);
-app.use('/', usersRouter);
-app.use('/', gradesRouter);
-app.use('/', attendanceouter);
-app.use('/', studentsRouter);
+app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

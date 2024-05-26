@@ -9,7 +9,9 @@ a {
 
 img {
   position: relative;
-  margin-top: 13vh;
+  margin-top: 6vh;
+  height: 12vh;
+  width: 12vh;
 }
 
 nav {
@@ -17,7 +19,6 @@ nav {
   display: flex;
   background-color: rgba(0, 0, 0, 0.404);
   height: 8vh;
-  width: 100%;
 }
 
 div > h2 {
@@ -25,10 +26,21 @@ div > h2 {
 
 }
 
-.software {
+div {
   display: flex;
   border-radius: 12px;
   background-color: red;
   height: 30vh;
-  width: 30vh;
+  width: 55vh;
 }
+
+.database {
+  margin-left: 50vh;
+  margin-top: 5vh;
+}
+
+.un {
+  margin-left: 100vh;
+  margin-top: -30vh;
+}
+
