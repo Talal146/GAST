@@ -6,32 +6,32 @@ const homeWorkSchema = new Schema(
 		name: { type: String, required: true },
 		deliverTime: { type: Date, required: true },
 		gradeWaight: { type: Number, min: 0, max: 10 },
-		description: { type: Text, required: true },
+		description: { type: String, required: true },
 	},
 	{
 		timestamps: true,
 	}
 );
-const homeworkModel = mongoose.model('homeworks', homeWorkSchema);
+const HomeworkModel = mongoose.model('homeworks', homeWorkSchema);
 
 const createHomework = (homeWorkData) => {
-	return homeworkModel.create(homeWorkData);
+	return new HomeworkModel(homeWorkData).save();
 };
-const getHomeworks = () => {
-	return homeworkModel.find();
+const getAllHomeworks = () => {
+	return HomeworkModel.find();
 };
 const getHomeworkById = (id) => {
-	return homeworkModel.findById(id);
+	return HomeworkModel.findById(id);
 };
 const updateHomework = (id, homeWorkData) => {
-	return homeworkModel.findByIdAndUpdate(id, homeWorkData);
+	return HomeworkModel.findByIdAndUpdate(id, homeWorkData);
 };
 const deleteHomework = (homeWorkData) => {
-	return homeworkModel.findByIdAndDelete(homeWorkData);
+	return HomeworkModel.findByIdAndDelete(homeWorkData);
 };
 module.exports = {
 	createHomework,
-	getHomeworks,
+	getAllHomeworks,
 	getHomeworkById,
 	updateHomework,
 	deleteHomework,
