@@ -18,11 +18,13 @@
     </tr>
   </thead>
   <tbody>
-        <tr>
-        <td><%= Student.name %></td>
-        <td><%= Student.grade %></td>
-        <td><%= Student.attendance %></td>
-        </tr>
+    <% users.forEach( User => { %>
+      <tr>
+      <td><%= User.name %></td>
+      <td><%= User.email %></td>
+      <td><%= User.phone %></td>
+      <td><%= User.details ? 'Yes' : 'No' %></td>
+      <% }); %>
 
   </tbody>
 </table>
@@ -38,11 +40,17 @@
     </tr>
   </thead>
   <tbody>
-        <tr>
-        <td><%= Student.name %></td>
-        <td><%= Student.grade %></td>
-        <td><%= Student.attendance %></td>
-        </tr>
+    <% students.forEach( Student => { %>
+      <tr>
+      <td><%= Student.name %></td>
+      <td><%= Student.email %></td>
+      <td><%= Student.phone %></td>
+      <td><%= Student.details ? 'Yes' : 'No' %></td>
+      <td><a href="/students/<%= Student._id %>">Information</a></td>
+      <td><%= Student.grade %></td>
+      <td><%= Student.attendance %></td>
+      </tr>
+      <% }); %>
 
   </tbody>
 </table>

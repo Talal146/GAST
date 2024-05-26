@@ -1,4 +1,5 @@
 const Student = require('../models/student');
+const User = require('../models/user');
 
 const newStudent = (req, res) => {
 	res.render('students/new');
