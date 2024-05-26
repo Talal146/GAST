@@ -49,12 +49,11 @@
       <td><%= Student.details ? 'Yes' : 'No' %></td>
       <td><%= Student.grade %></td>
       <td><a href="/students/<%= Student._id %>/grades">grade</a></td>
-      <td><%= Student.grade %></td>
       <td><%= Student.attendance %></td>
       </tr>
       <% }); %>
 
-      <a href="/students/grade"><button id="ADD" type="submit">ADD STUDENT</button></a>
+      <a href="/students/grade"><button id="ADD" type="submit">Grade Report</button></a>
 
 
   </tbody>
