@@ -4,7 +4,8 @@ const User = require('../models/user');
 
 module.exports = {
   index,
-  show
+  show, 
+  showpage
 };
 
 //display all courses in the home page
@@ -12,6 +13,11 @@ async function index(req, res) {
   const courses = await Course.find({});
   res.render('courses/index', { title: 'All Courses', courses });
 }
+
+async function showpage(req, res) {
+  res.render('courses/show', { title: 'Courses details', course});
+}
+
 
 
 async function show(req, res) {

@@ -1,38 +1,50 @@
-const Course = require('../models/course');
 const User = require('../models/user');
 
-
-//*******************fix the render to the page  */
-
-async function newUser(req, res) {
-  const users = await User.find({}).sort('name');
-  res.render('adduser/new', { title: 'Add Instructor', users });
+const newUser = (req, res) => {
+	res.render('users/new');
 }
 
-async function create(req, res) {
-  try {
-    await User.create(req.body);
-  } catch (err) {
-    console.log(err);
-  }
-  res.redirect('/adduser/new');
-}
-
-const addToCourse = async(req, res) => {
-  try {
+const create = async(req, res) => {
+    try {
+      User.create(req.body)
+      req.body.details = !!req.body.details;
   
-    const course = await Course.findById(req.params.id);
-    course.user.push(req.body.studentId);
-    await course.save()
-    res.redirect(`/courses/${course._id}`);
-  } catch(error) {
-    console.log(error);
-    res.redirect(`/courses/${course._id}`);
-  } 
-}
+      if (req.body.email) {
+        req.body.email = req.body.email.trim();
+        req.body.email = req.body.email.split(/\s*,\s*/);
+      }
+  
+      const user = new User(req.body);
+  
+      if (user.name) {
+        user.name = user.name.toUpperCase();
+      }
+          await user.save();
+          console.log(user);
+          res.redirect('/users');
+        } catch (err) {
+          console.error(err);
+          res.redirect('/users/new');
+        }
+  }
 
-module.exports = {
-  new: newUser,
-  create,
-  addToCourse
-};
+const index = async (req, res, next) => {
+  try {
+      const users = await User.find({});
+      res.render('users/', {users});
+      console.log(users)
+  }
+  catch (err) {
+       next(err);
+  }};
+
+async function show(req, res) {
+    res.render('users/show', { title: 'Student details', User});
+  }
+
+  module.exports = {
+    new: newUser,
+    create,
+    index,
+    show    
+  };

@@ -14,25 +14,12 @@ img {
   width: 12vh;
 }
 
-nav {
-  padding-left: 3vh;
-  display: flex;
-  background-color: rgba(0, 0, 0, 0.404);
-  height: 8vh;
-}
 
 div > h2 {
   text-align: center;
 
 }
 
-div {
-  display: flex;
-  border-radius: 12px;
-  background-color: red;
-  height: 30vh;
-  width: 55vh;
-}
 
 .database {
   margin-left: 50vh;
@@ -43,4 +30,22 @@ div {
   margin-left: 100vh;
   margin-top: -30vh;
 }
+
+nav {
+  background-color: #333;
+  color: #fff;
+}
+
+
+nav ul li {
+  display: inline-block;
+  padding:15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+
 
