@@ -24,7 +24,7 @@ async function show(req, res) {
     const availableUsers = users.filter((courseUser)=> {
       console.log(typeof courseUser._id)
       if(!courseUsersName.includes(courseUser.name)) {
-        return courseUser;
+        return courseUser;  
       }
     })
 

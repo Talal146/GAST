@@ -1,6 +1,6 @@
 // AttendanceController.js
-const Course = require('../models/Course');
-const Student = require('../models/Student');
+const Course = require('../models/course');
+const Student = require('../models/student');
 
 //*******************add render to the page  */
 

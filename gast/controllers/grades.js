@@ -1,6 +1,6 @@
 // GradeController.js
-const Course = require('../models/Course');
-const Student = require('../models/Student');
+const Course = require('../models/course');
+const Student = require('../models/student');
 
 async function updateGrades(req, res){
   try {
@@ -8,7 +8,7 @@ async function updateGrades(req, res){
     const students  = req.body;
 
     const course = await Course.findById(req.params.id).populate('students');
-
+    
     for (const student of students) {
       const studentObj = course.students.find((stu) => stu.id === student.id);
       studentObj.homework.push(student.homework);
