@@ -35,7 +35,7 @@ const create = async(req, res) => {
 const index = async (req, res, next) => {
   try {
       const students = await Student.find({});
-      res.render('students/', {students});
+      res.render('students/index', {students});
       console.log(students)
   }
   catch (err) {
