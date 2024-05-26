@@ -2,6 +2,7 @@ const Course = require('../models/course');
 const User = require('../models/user');
 
 
+//*******************fix the render to the page  */
 
 async function newUser(req, res) {
   const users = await User.find({}).sort('name');
