@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+<h2>Users List</h2>
+<table id="list">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>details</th>
+    </tr>
+  </thead>
+  <tbody>
+        <% users.forEach( User => { %>
+        <tr>
+        <td><%= User.name %></td>
+        <td><%= User.email %></td>
+        <td><%= User.phone %></td>
+        <td><%= User.details ? 'Yes' : 'No' %></td>
+
+        </tr>
+        <% }); %>
+  </tbody>
+</table>
