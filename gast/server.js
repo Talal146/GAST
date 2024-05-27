@@ -12,6 +12,7 @@ var studentsRouter = require('./routes/students');
 
 
 var app = express();
+app.use('/api/v1', studentsRouter); 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

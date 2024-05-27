@@ -7,11 +7,11 @@ router.get('/', studentsCtrl.index);
 
 router.get('/new', studentsCtrl.new);
 
-router.get('/grade', studentsCtrl.grade);
+router.get('/grade', studentsCtrl.getStudents);
+router.post('/grade', studentsCtrl.submitGrades);
 
-
-router.get('/grade', studentsCtrl.grade);
-
+router.get('/attendance', studentsCtrl.getStudents2);
+router.post('/attendance', studentsCtrl.submitAttendance);
 
 router.post('/', studentsCtrl.create);
 
