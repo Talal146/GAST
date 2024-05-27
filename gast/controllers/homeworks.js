@@ -7,16 +7,16 @@ const index = async (req, res) => {
         const students = await Student.find({});
 		
 		let totalGrade = homeworks.reduce((total, grade) => total + grade.gradeWaight, 0);
-		homeworks.forEach(
-		hw=>
- 				hw.total=(totalGrade/hw.name.length)*(100/10),
-		)
+		const sum = homeworks.length;
+
+		homeworks.total=(totalGrade/sum)*(100/10);
         
 		res.render('homeworks/index', {
 			homeworks,students
 		});
-	console.error(err);
-	} catch {err}
+	
+	} catch {}
+	
 };
 
 const newhomework = (req, res) => {
@@ -34,21 +34,18 @@ const create = async (req, res) => {
 		console.error(err);
 		res.redirect('/homeworks/new');
 	}
-}
-
+};
 
 const show = async (req, res) => {
 	try {
 		const homeworks = await homeworkModel.getAllHomeworks().lean();
 		const students = await Student.find({});
 		const student = await Student.findById(req.params.id);
-		let totalGrade = homeworks.reduce((total, grade) => total + grade.gradeWaight, 0);
-        console.log(totalGrade,"totalGrade");
-		homeworks.forEach(
-		hw=>
- 				hw.total=(totalGrade/hw.name.length)*(100/10),
-		)
 
+		let totalGrade = homeworks.reduce((total, grade) => total + grade.gradeWaight, 0);
+		const sum = homeworks.length;
+
+		homeworks.total=(totalGrade/sum)*(100/10);
 		res.render('homeworks/show',
 		 {
 		homeworks,student,students
@@ -57,8 +54,6 @@ const show = async (req, res) => {
 		console.log(err)
 	}
 };
-
-
 
 module.exports = {
 	index,

@@ -15,34 +15,19 @@
 	<tbody>
 			<tr>
 			<td><%= student.name %></td>
-	
+        </tr>
 		<% homeworks.forEach((homework) => { %>
 		<tr>
 			<td><%= homework.name %></td>
 			<td><%= homework.deliverTime %></td>
 			<td><%= homework.gradeWaight %></td>
 			<td><%= homework.description %></td>
-			<td><%= homework.total %></td>
 			<td>
+            <% }); %>
+            <td><%= homeworks.total %></td>
 		</tr>
-		<% }); %>
+		
 	</tbody>
 </table>
 
-<table class="grade-table">
-	<thead>
-	  <tr>
-		<th>Student</th>
-		<% let numHomeworks = 10 %>
-	<% for (let i = 1; i <= numHomeworks; i++) { %>
-        <th><%= i %></th>
-
-      <% } %>
-		<% let numProjects = 2 %>
-		<% for (let i = 1; i <= numProjects; i++) { %>
-
-		  <th><%= i %></th>
-		<% } %>
-		<tr>
-		  <td colspan="<%= numHomeworks + numProjects + 1 %>">
 <%- include('../partials/footer') %>
