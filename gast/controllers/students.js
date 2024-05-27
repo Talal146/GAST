@@ -5,11 +5,6 @@ const newStudent = (req, res) => {
 	res.render('students/new');
 }
 
-async function grade(req, res){
-  const students = await Student.find({});
-  res.render('students/grade', { title: 'Student details', students});
-}
-
 const create = async(req, res) => {
     try {
       Student.create(req.body)
@@ -45,6 +40,7 @@ const index = async (req, res, next) => {
   }};
 
 async function show(req, res) {
+  console.log("grade")
   const users = await User.find({});
   const students = await Student.find({});
   res.render('students/show', { title: 'Student details', students ,users});
@@ -52,7 +48,6 @@ async function show(req, res) {
 
   module.exports = {
     new: newStudent,
-    grade,
     create,
     index,
     show    
