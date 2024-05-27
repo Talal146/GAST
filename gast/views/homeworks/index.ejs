@@ -1,11 +1,8 @@
 <h2>homeworks</h2>
 <table id="list">
-	<% let numHomeworks = 10 %>
-	<% for (let i = 1; i <= numHomeworks; i++) { %>
-        <th>HW <%= i %></th>
-      <% } %>
 	<thead>
 		<tr>
+			<th>Student name</th>
 			<th>homework name</th>
 			<th>deliverTime</th>
 			<th>gradeWaight</th>
@@ -14,7 +11,13 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% homeworks.forEach( homework => { %>
+		<% students.forEach((student) => { %>
+			<tr>
+			<td><%= student.name %></td>
+		
+		<% }); %>		  
+
+		<% homeworks.forEach((homework) => { %>
 		<tr>
 			<td><%= homework.name %></td>
 			<td><%= homework.deliverTime %></td>
@@ -26,5 +29,26 @@
 		<% }); %>
 	</tbody>
 </table>
+
+<table class="grade-table">
+	<thead>
+	  <tr>
+		<th>Student</th>
+		<% let numHomeworks = 10 %>
+	<% for (let i = 1; i <= numHomeworks; i++) { %>
+        <th><%= i %></th>
+
+      <% } %>
+		<% let numProjects = 2 %>
+		<% for (let i = 1; i <= numProjects; i++) { %>
+
+		  <th><%= i %></th>
+		<% } %>
+
+	  <form action="/students/grade" method="POST">
+		<tr>
+		  <td colspan="<%= numHomeworks + numProjects + 1 %>">
+			<button id="submit" type="submit">ADD GRADES</button>
+		
 
 <%- include('../partials/footer') %>

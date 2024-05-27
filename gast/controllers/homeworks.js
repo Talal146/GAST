@@ -1,9 +1,14 @@
 var homeworkModel = require('../models/homework');
+const Student = require('../models/student');
+const User = require('../models/user');
+
 
 const index = async (req, res) => {
 	try {
 		const homeworks = await homeworkModel.getAllHomeworks().lean();
 		console.log(homeworks);
+		const users = await User.find({});
+        const students = await Student.find({});
 		
 		let totalGrade = homeworks.reduce((total, grade) => total + grade.gradeWaight, 0);
         console.log(totalGrade,"totalGrade");
@@ -12,9 +17,8 @@ const index = async (req, res) => {
  				hw.total=(totalGrade/hw.name.length)*(100/10),
 		)
         
-
 		res.render('homeworks/index', {
-			homeworks,
+			homeworks,students
 		});
 	} catch {}
 };

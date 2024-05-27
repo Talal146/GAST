@@ -5,8 +5,9 @@ const homeWorkSchema = new Schema(
 	{
 		name: { type: String, required: true },
 		deliverTime: { type: Date, required: true },
-		gradeWaight: [{ type: Number, min: 0, max: 10 }],
+		gradeWaight: { type: Number, min: 0, max: 10 },
 		description: { type: String, required: true },
+		// homeworks:[{type:S}]
 	},
 	{
 		timestamps: true,
