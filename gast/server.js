@@ -1,13 +1,13 @@
-
 var createError = require('http-errors')
 var express = require('express')
 var path = require('path')
 var cookieParser = require('cookie-parser')
 var logger = require('morgan')
-require('dotenv').config()
-require('./config/database')
 var session = require('express-session')
 var passport = require('passport')
+
+// routes that can be accessed without beeing logged in
+const allowedRoutes = ['/', '/logout', '/auth/google']
 
 require('dotenv').config()
 require('./config/database')
@@ -29,20 +29,33 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true
+  })
+)
+app.use(passport.initialize())
+app.use(passport.session())
+
+// Authentication Middleware
+app.use(function (req, res, next) {
+  const user = req.user || null
+  res.locals.user = user
+  user ||
+  allowedRoutes.includes(req.path) ||
+  req.path.startsWith('/oauth2callback')
+    ? next()
+    : res.sendStatus(401)
+})
+
 app.use('/', indexRouter)
 app.use('/students', studentsRouter)
 app.use('/users', usersRouter)
 app.use('/homeworks', homeworkRouter)
 
-app.use(passport.initialize())
-app.use(passport.session())
-
 // Add this middleware BELOW passport middleware
-app.use(function (req, res, next) {
-  res.locals.user = req.user
-  next()
-})
-
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
