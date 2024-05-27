@@ -5,8 +5,9 @@ const newStudent = (req, res) => {
 	res.render('students/new');
 }
 
-const grade = (req, res) => {
-	res.render('students/grade');
+async function grade(req, res){
+  const students = await Student.find({});
+  res.render('students/grade', { title: 'Student details', students});
 }
 
 const create = async(req, res) => {
