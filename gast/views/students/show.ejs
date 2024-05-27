@@ -7,6 +7,7 @@
 
 
 </section>
+  <a href="/users/new"><button id="ADDALL" type="submit">ADD USER</button></a>
 </form>
 <h2>Instructor Details</h2>
 <table id="list">
@@ -34,9 +35,13 @@
 <table id="list">
   <thead>
     <tr>
-      <th>Name<br><a href="/students">Details</a></br></th>
-      <th>Grade (%)<br><a href="/students/grade">Details</a></br></th>
-      <th>Attendance (%)<br><a href="">Details</a></br></th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Details Availabe</th>
+      <th>Grade (%)</th>
+      <th>Attendance (%)</th>
+
     </tr>
   </thead>
   <tbody>
@@ -46,11 +51,14 @@
       <td><%= Student.email %></td>
       <td><%= Student.phone %></td>
       <td><%= Student.details ? 'Yes' : 'No' %></td>
-      <td><a href="/students/<%= Student._id %>">Information</a></td>
       <td><%= Student.grade %></td>
+      <td><a href="/students/<%= Student._id %>/grades">grade</a></td>
       <td><%= Student.attendance %></td>
       </tr>
       <% }); %>
+
+      <a href="/students/grade"><button id="ADD" type="submit">Grade Report</button></a>
+
 
   </tbody>
 </table>
