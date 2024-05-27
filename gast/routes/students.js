@@ -9,6 +9,10 @@ router.get('/new', studentsCtrl.new);
 
 router.get('/grade', studentsCtrl.grade);
 
+
+router.get('/grade', studentsCtrl.grade);
+
+
 router.post('/', studentsCtrl.create);
 
 router.get('/:id', studentsCtrl.show);

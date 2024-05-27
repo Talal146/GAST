@@ -1,20 +1,59 @@
 <%- include('../partials/header') %>
-<form action="/students/grade" method="POST">
+<!-- <form action="/students/grade" method="POST">
     <h2>Grade</h2>
+
     <ul>
-    <li><label for="project">Project:</li>
+     <li><label for="project">student name:</li></label>
+    
+    <br>
+    <li><label for="project">Project:</li></label>
       <input id="project" type="number" name="project">
-    </label><br>
-    <li><label>Hw1:</li>
-      <input id="hw1" type="number" name="hw1">
-    </label><br>
-    <li><label for ="hw2">Hw2:</li>
-      <input id="hw2" type="number" name="hw2">
-      <li><label for ="grade">Grade:</li>
-        <input id="grade" type="number" name="grade">
-    <li><label>Details Avaliable:
-        <input id="check" type="checkbox" name="Detalis" value=false checked>
-    </label><br></li>
+    <br>
+    <li><label for="homework">homework:</li></label>
+      <input id="homework" type="number" name="homework">
+    <br>
     <button id="submit" type="submit">ADD GRADE</button>
   </ul>
-  </form>
+
+  </form> -->
+
+  <!-- grades-table.ejs -->
+  <table class="grade-table">
+    <thead>
+      <tr>
+        <th>Student</th>
+        <% let numHomeworks = 10 %>
+        <% let numProjects = 2 %>
+        <% for (let i = 1; i <= numHomeworks; i++) { %>
+          <th>HW <%= i %></th>
+        <% } %>
+        <% for (let i = 1; i <= numProjects; i++) { %>
+          <th>Proj <%= i %></th>
+        <% } %>
+      </tr>
+    </thead>
+    <tbody>
+      <form action="/students/grade" method="POST">
+        <% students.forEach((student) => { %>
+          <tr>
+            <td><%= student.name %></td>
+            <% for (let i = 0; i < numHomeworks; i++) { %>
+              <td>
+                <input type="number" name="grades[<%= student._id %>][homework][<%= i %>]" value="<%= student.homework[i] || '' %>">
+              </td>
+            <% } %>
+            <% for (let i = 0; i < numProjects; i++) { %>
+              <td>
+                <input type="number" name="grades[<%= student._id %>][project][<%= i %>]" value="<%= student.project[i] || '' %>">
+              </td>
+            <% } %>
+          </tr>
+        <% }); %>
+        <tr>
+          <td colspan="<%= numHomeworks + numProjects + 1 %>">
+            <button id="submit" type="submit">ADD GRADES</button>
+          </td>
+        </tr>
+      </form>
+    </tbody>
+  </table>

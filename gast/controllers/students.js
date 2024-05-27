@@ -5,8 +5,9 @@ const newStudent = (req, res) => {
 	res.render('students/new');
 }
 
-const grade = (req, res) => {
-	res.render('students/grade');
+const grade =async (req, res) => {
+  const students = await Student.find({}).sort();
+	res.render('students/grade',{students});
 }
 
 const create = async(req, res) => {
@@ -43,16 +44,90 @@ const index = async (req, res, next) => {
        next(err);
   }};
 
-async function show(req, res) {
+  const show = async(req, res) =>{
   const users = await User.find({});
   const students = await Student.find({});
   res.render('students/show', { title: 'Student details', students ,users});
   }
 
+  // const updateGrades = async (req, res) => {
+  //     try {
+  //       const studentsGrades = req.body.grades;
+    
+  //       // Iterate over the grades object to update student documents
+  //       for (const studentId in studentsGrades) {
+  //         const student = await Student.findById(studentId);
+  //         if (!student) {
+  //           // Handle case where student not found
+  //           console.log(`Student with ID ${studentId} not found.`);
+  //           continue;
+  //         }
+    
+  //         // Update student's homework grades
+  //         if (studentsGrades[studentId].homework) {
+  //           student.homework = studentsGrades[studentId].homework;
+  //         }
+    
+  //         // Update student's project grades
+  //         if (studentsGrades[studentId].project) {
+  //           student.project = studentsGrades[studentId].project;
+  //         }
+    
+  //         console.log(studentsGrades)
+  //         // Save the updated student document
+  //         await student.save();
+  //       }
+    
+  //       // Redirect or send response indicating successful update
+  //       res.redirect('/students'); // Replace '/students' with the appropriate URL
+  //     } catch (error) {
+  //       // Handle any errors that occurred during the update process
+  //       console.error('Error updating student grades:', error);
+  //       // Redirect or send an error response
+  //       res.status(500).json({ error: 'An error occurred while updating student grades.' });
+  //     }
+  //   };
+
+
+  exports.getStudents = async (req, res) => {
+    try {
+      const students = await Student.find();
+      res.json(students);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error retrieving students!');
+    }
+  };
+  
+  const submitGrades = async (req, res) => {
+    const grades = req.body.grades;
+  
+    try {
+      for (const studentId in grades) {
+        const studentGrades = grades[studentId];
+        const update = {
+          $set: {
+            homework: studentGrades.homework,
+            project: studentGrades.project
+          }
+        };
+  
+        await Student.findOneAndUpdate({ _id: studentId }, update);
+      }
+  
+      res.send('Grades submitted successfully!');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error submitting grades!');
+    }
+  };
+  
   module.exports = {
     new: newStudent,
     grade,
     create,
     index,
-    show    
+    show ,
+    submitGrades
+    // updateGrades   
   };
