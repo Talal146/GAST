@@ -1,11 +1,16 @@
 <h2>homeworks</h2>
 <table id="list">
+	<% let numHomeworks = 10 %>
+	<% for (let i = 1; i <= numHomeworks; i++) { %>
+        <th>HW <%= i %></th>
+      <% } %>
 	<thead>
 		<tr>
 			<th>homework name</th>
 			<th>deliverTime</th>
 			<th>gradeWaight</th>
 			<th>description</th>
+			<th>Total</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -15,6 +20,8 @@
 			<td><%= homework.deliverTime %></td>
 			<td><%= homework.gradeWaight %></td>
 			<td><%= homework.description %></td>
+			<td><%= homework.total %></td>
+			<td>
 		</tr>
 		<% }); %>
 	</tbody>

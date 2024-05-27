@@ -1,11 +1,18 @@
 var homeworkModel = require('../models/homework');
-const Student = require('../models/student');
-const User = require('../models/user');
 
 const index = async (req, res) => {
 	try {
 		const homeworks = await homeworkModel.getAllHomeworks().lean();
 		console.log(homeworks);
+		
+		let totalGrade = homeworks.reduce((total, grade) => total + grade.gradeWaight, 0);
+        console.log(totalGrade,"totalGrade");
+		homeworks.forEach(
+		hw=>
+ 				hw.total=(totalGrade/hw.name.length)*(100/10),
+		)
+        
+
 		res.render('homeworks/index', {
 			homeworks,
 		});
@@ -18,10 +25,8 @@ const newhomework = (req, res) => {
 
 const create = async (req, res) => {
 	try {
-		// Create a new homework using the data from the request body
 		const newHomework = await homeworkModel.createHomework(req.body);
 		console.log(newHomework);
-		// Redirect to the index page to display all homeworks
 		res.redirect('/homeworks');
 	} catch (err) {
 		console.error(err);
