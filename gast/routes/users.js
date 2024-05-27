@@ -8,3 +8,4 @@ router.post('/', usersCtrl.create);
 router.get('/', usersCtrl.index);
 
 module.exports = router;
+

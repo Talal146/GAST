@@ -42,7 +42,7 @@ async function show(req, res) {
         return courseStu;
       }
     })
-    res.render(`couses/${course._id}`, { title:` '${course.name}'`, course, availableStudents,availableUsers });
+    res.render(`couses/${course._id}`, { title:`${course.name}`, course, availableStudents,availableUsers });
   }
 
 

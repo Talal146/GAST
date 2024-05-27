@@ -8,8 +8,6 @@ require('./config/database');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-// var gradesRouter = require('./routes/grades');
-// var attendanceouter = require('./routes/attendance');
 var studentsRouter = require('./routes/students');
 
 
@@ -27,8 +25,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// app.use('/', gradesRouter);
-// app.use('/', attendanceouter);
 app.use('/students', studentsRouter);
 
 

@@ -6,7 +6,6 @@ const studentSchema = new Schema({
   email: { type: String, required: true },
   phone: { type: Number },
   details: { type:Boolean},
-  
   homework: { type: [Number] },
   project: { type: [Number] },
   attendanceObject: {
