@@ -6,15 +6,14 @@ const studentSchema = new Schema({
   email: { type: String, required: true },
   phone: { type: Number },
   details: { type:Boolean},
-  
-  homework: { type: [Number] },
-  project: { type: [Number] },
+
   attendanceObject: {
     date: { type: Date},
     status: {
       type:Boolean,
       enum: ['true', 'false'],
-    }
+    },
+    homeworks: [{ type: Schema.Types.ObjectId, ref: 'homeworks' }]
   }}, 
   {
     timestamps: true

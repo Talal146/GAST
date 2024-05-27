@@ -13,7 +13,7 @@
 	<tbody>
 		<% students.forEach((student) => { %>
 			<tr>
-			<td><%= student.name %></td>
+			<td><%= student._id %></td>
 		
 		<% }); %>		  
 
@@ -44,8 +44,6 @@
 
 		  <th><%= i %></th>
 		<% } %>
-
-	  <form action="/students/grade" method="POST">
 		<tr>
 		  <td colspan="<%= numHomeworks + numProjects + 1 %>">
 			<button id="submit" type="submit">ADD GRADES</button>

@@ -7,7 +7,6 @@ const index = async (req, res) => {
 	try {
 		const homeworks = await homeworkModel.getAllHomeworks().lean();
 		console.log(homeworks);
-		const users = await User.find({});
         const students = await Student.find({});
 		
 		let totalGrade = homeworks.reduce((total, grade) => total + grade.gradeWaight, 0);
