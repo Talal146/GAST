@@ -1,3 +1,4 @@
+
 var createError = require('http-errors')
 var express = require('express')
 var path = require('path')
@@ -41,6 +42,7 @@ app.use(function (req, res, next) {
   res.locals.user = req.user
   next()
 })
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

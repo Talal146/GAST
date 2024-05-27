@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+
+<table class="grade-table">
+    <thead>
+      <tr>
+        <th>Student</th>
+        <% let numattendance = 10 %>
+        <% for (let i = 1; i <= numattendance; i++) { %>
+          <th> <%= i+1 %></th>
+        <% } %>
+    </thead>
+    <tbody>
+      <form action="/students/attendance" method="POST">
+        <% students.forEach((student) => { %>
+          <tr>
+            <td><%= student.name %></td>
+            <% for (let i = 0; i < numattendance; i++) { %>
+              <td>
+                <input type="number" name="attendance" value="<%= student.homework[i] || '' %>">
+              </td>
+            <% } %>
+          </tr>
+        <% }); %>
+        <tr>
+          <td colspan="<%= numHomeworks + numProjects + 1 %>">
+            <button id="submit" type="submit">ADD GRADES</button>
+          </td>
+        </tr>
+      </form>
+    </tbody>
+  </table>

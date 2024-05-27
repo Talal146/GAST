@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<form action="/homeworks" method="POST">
+  <h2>Add a New Task</h2>
+  <ul>
+  <li><label for="name">Name:</li>
+    <input id="name" type="text" name="name">
+  </label><br>
+  <li><label>deliverTime:</li>
+    <input id="deliverTime" type="date" name="deliverTime">
+  </label><br>
+  <li><label for ="description">description</li>
+    <input id="description" type="text" name="description">
+  <li><label>Details Avaliable:
+      <input id="check" type="checkbox" name="Detalis" value=true checked>
+  </label><br></li>
+  <button id="submit" type="submit">ADD GRADE</button>
+</ul>
+</form>
+
