@@ -1,4 +1,5 @@
 const Student = require('../models/student');
+const User = require('../models/user');
 
 const newStudent = (req, res) => {
 	res.render('students/new');
@@ -35,7 +36,7 @@ const create = async(req, res) => {
 const index = async (req, res, next) => {
   try {
       const students = await Student.find({});
-      res.render('students/', {students});
+      res.render('students/index', {students});
       console.log(students)
   }
   catch (err) {
@@ -43,7 +44,9 @@ const index = async (req, res, next) => {
   }};
 
 async function show(req, res) {
-    res.render('students/show', { title: 'Student details', Student});
+  const users = await User.find({});
+  const students = await Student.find({});
+  res.render('students/show', { title: 'Student details', students ,users});
   }
 
   module.exports = {

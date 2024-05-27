@@ -2,18 +2,8 @@
 <link rel='stylesheet' href='/stylesheets1/style.css' />
 <nav>
   <a href="/students/new"><button id="ADD" type="submit">ADD STUDENT</button></a>
-  <a href="/students"><button id="ADDALL" type="submit">ALL STUDENTS</button></a>
+  <a href="/users/new"><button id="ADDALL" type="submit">ADD USER</button></a>
   <img src = "">
-
-</nav>
-<section id="show-page">
-  <h2>Course Details:</h2>
-  <div>Course-Name: <%= //Course.name %></div>
-  <div>members: <%= //Course.members %></div>
-  <div>Duration: <%= //Course.duration %> </div>
-  <div>Details: <%= //Course.details ? 'Yes' : 'Nope' %></div>
-
-</section>
 </form>
 <h2>Instructor Details</h2>
 <table id="list">
@@ -25,11 +15,13 @@
     </tr>
   </thead>
   <tbody>
-        <tr>
-        <td><%= Student.name %></td>
-        <td><%= Student.grade %></td>
-        <td><%= Student.attendance %></td>
-        </tr>
+    <% users.forEach( User => { %>
+      <tr>
+      <td><%= User.name %></td>
+      <td><%= User.email %></td>
+      <td><%= User.phone %></td>
+      <td><%= User.details ? 'Yes' : 'No' %></td>
+      <% }); %>
 
   </tbody>
 </table>
@@ -39,17 +31,30 @@
 <table id="list">
   <thead>
     <tr>
-      <th>Name<br><a href="/students">Details</a></br></th>
-      <th>Grade (%)<br><a href="/students/grade">Details</a></br></th>
-      <th>Attendance (%)<br><a href="">Details</a></br></th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Details Availabe</th>
+      <th>Grade (%)</th>
+      <th>Attendance (%)</th>
+
     </tr>
   </thead>
   <tbody>
-        <tr>
-        <td><%= Student.name %></td>
-        <td><%= Student.grade %></td>
-        <td><%= Student.attendance %></td>
-        </tr>
+    <% students.forEach( Student => { %>
+      <tr>
+      <td><%= Student.name %></td>
+      <td><%= Student.email %></td>
+      <td><%= Student.phone %></td>
+      <td><%= Student.details ? 'Yes' : 'No' %></td>
+      <td><%= Student.grade %></td>
+      <td><a href="/students/<%= Student._id %>/grades">grade</a></td>
+      <td><%= Student.attendance %></td>
+      </tr>
+      <% }); %>
+
+      <a href="/students/grade"><button id="ADD" type="submit">Grade Report</button></a>
+
 
   </tbody>
 </table>
