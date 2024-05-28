@@ -1,4 +1,3 @@
-const student = require('../models/student');
 const Student = require('../models/student');
 const User = require('../models/user');
 
@@ -37,7 +36,7 @@ const index = async (req, res, next) => {
       console.log(students)
   }
   catch (err) {
-       next(err);
+      next(err);
   }};
 
   const show = async(req, res) =>{
@@ -76,12 +75,12 @@ const index = async (req, res, next) => {
     }
   }
   
-   module.exports = {
+  module.exports = {
     new: newStudent,
     create,
     index,
     show ,
     getStudents,
-    submitAttendance,
+    submitAttendance
     
   }
