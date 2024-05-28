@@ -1,10 +1,12 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: grey;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  background-image: url(https://png.pngtree.com/thumb_back/fh260/back_pic/03/82/23/2357c6c0ce98502.jpg);
+  background-repeat: no-repeat;
+  background-size:cover ;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
 
 img {
@@ -14,12 +16,9 @@ img {
   width: 12vh;
 }
 
-
 div > h2 {
   text-align: center;
-
 }
-
 
 .database {
   margin-left: 50vh;
@@ -32,21 +31,20 @@ div > h2 {
 }
 
 nav {
-  background-color: #333;
-  color: #fff;
+  backdrop-filter: blur(30px);
+  box-shadow: 0px 0px 30px rgba(227, 228, 237, o.37);
+  border: 2px solid rgba(255, 255, 255, 0.18);
 }
-
 
 nav ul li {
   display: inline-block;
-  padding:15px;
+  padding: 15px;
 }
 
 nav ul li a {
   color: #fff;
   text-decoration: none;
 }
-
 
 
 .table-style {
@@ -70,6 +68,4 @@ nav ul li a {
 .table-style tbody td {
   background-color: #ffffff;
 }
-
-
 
