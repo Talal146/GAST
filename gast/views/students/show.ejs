@@ -10,7 +10,7 @@
   <a href="/users/new"><button id="ADDALL" type="submit">ADD USER</button></a>
 </form>
 <h2>Instructor Details</h2>
-<table id="list">
+<table clas="table-style">
   <thead>
     <tr>
       <th>Name</th>
@@ -32,7 +32,7 @@
 
 <%- include('../partials/footer') %>
 <h2>Student Report</h2>
-<table id="list">
+<table clas="table-style">
   <thead>
     <tr>
       <th>Name</th>
@@ -40,8 +40,7 @@
       <th>Phone</th>
       <th>Details Availabe</th>
       <th>Grade (%)</th>
-      <th>Attendance (%)</th>
-
+      <th>Days of attendance</th>
     </tr>
   </thead>
   <tbody>
@@ -53,7 +52,7 @@
       <td><%= Student.details ? 'Yes' : 'No' %></td>
       <td><%= Student.totalGrade %></td>
       <td><a href="/homeworks">grade</a></td>
-      <td><%= Student.attendance %></td>
+      <td><%= Student.attendanceCount %></td>
       </tr>
       <% }); %>
 
