@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+<% if (students) { %>
+  <table class="table-style">
+    <thead>
+      <tr>
+        <th>Students Attendance</th>
+        <th>Today (<%= new Date().toLocaleDateString() %>)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <form action="/students/attendance" method="POST">
+        <% students.forEach((student) => { %>
+          <tr>
+            <td><%= student.name %></td>
+            <td>
+              <input type="checkbox" name="<%= student._id %>" value="true"> Present
+            </td>
+          </tr>
+        <% }); %>
+        <tr>
+          <td colspan="2">
+            <button id="submit" type="submit">ADD ATTENDANCE</button>
+          </td>
+        </tr>
+      </form>
+    </tbody>
+  </table>
+  <% } else { %>
+    <p>No students found.</p>
+  <% } %>
+
+  <%- include('../partials/footer') %>

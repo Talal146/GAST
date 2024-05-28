@@ -1,10 +1,12 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: grey;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  background-image: url(https://png.pngtree.com/thumb_back/fh260/back_pic/03/82/23/2357c6c0ce98502.jpg);
+  background-repeat: no-repeat;
+  background-size:cover ;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
 
 img {
@@ -14,24 +16,8 @@ img {
   width: 12vh;
 }
 
-nav {
-  padding-left: 3vh;
-  display: flex;
-  background-color: rgba(0, 0, 0, 0.404);
-  height: 8vh;
-}
-
 div > h2 {
   text-align: center;
-
-}
-
-div {
-  display: flex;
-  border-radius: 12px;
-  background-color: red;
-  height: 30vh;
-  width: 55vh;
 }
 
 .database {
@@ -42,5 +28,44 @@ div {
 .un {
   margin-left: 100vh;
   margin-top: -30vh;
+}
+
+nav {
+  backdrop-filter: blur(30px);
+  box-shadow: 0px 0px 30px rgba(227, 228, 237, o.37);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.table-style {
+  width: 60%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.table-style th,
+.table-style td {
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.table-style thead th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.table-style tbody td {
+  background-color: #ffffff;
 }
 
