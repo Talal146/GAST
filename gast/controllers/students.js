@@ -1,6 +1,5 @@
 const Student = require('../models/student');
 const User = require('../models/user');
-const Homeworks = require('../models/homework');
 
 const newStudent = (req, res) => {
 	res.render('students/new');
@@ -65,19 +64,16 @@ const index = async (req, res, next) => {
         Object.entries(attendanceStatus).map(async ([studentId, attendance]) => {
           const student = await Student.findById(studentId);
           if (!student) return false; 
-          await student.updateAttendance(attendance === 'true');
+          student.attendance = attendance === 'true';
+          await student.save();
           return student;
         })
-
-    
-      );  
-     
-    
+      ) 
     res.render("students/attendance", { students: updatedStudents });
     } catch (error) {
       console.error(error);
-    }
-  }
+      res.status(500).send('Error updating attendance!');
+    }};
 
 async function editStudent(req, res) {
     const student = await Student.findById(req.params.id);

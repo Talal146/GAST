@@ -12,9 +12,9 @@ const studentSchema = new Schema({
     status: {
       type:Boolean,
       enum: ['true', 'false'],
-    },
+  }},
     homeworks: [{ type: Schema.Types.ObjectId, ref: 'homeworks' }]
-  }}, 
+  }, 
   {
     timestamps: true
   });
