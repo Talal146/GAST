@@ -1,64 +1,53 @@
-
 <%- include('../partials/header') %>
-<link rel='stylesheet' href='/stylesheets1/style.css' />
+<link
+	rel="stylesheet"
+	href="/stylesheets1/style.css" />
+<div class="instable">
+	<h2>Instructor Details</h2>
+	<table clas="table-style">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Phone-Number</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% users.forEach( User => { %>
+			<tr>
+				<td><%= User.name %></td>
+				<td><%= User.email %></td>
+				<td><%= User.phone %></td>
+				<td><%= User.details ? 'Yes' : 'No' %></td>
+				<% }); %>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="studtable">
+	<h2>Student Report</h2>
+	<table clas="table-style">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Grade (%)</th>
+				<th>Grade Details</th>
+				<th>attendance</th>
+				<th>student details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% students.forEach( Student => { %>
+			<tr>
+				<td><%= Student.name %></td>
 
-  <a href="/students/new"><button id="ADD" type="submit">ADD STUDENT</button></a>
-  <a href="/students"><button id="ADDALL" type="submit">ALL STUDENTS</button></a>
-
-
-</section>
-  <a href="/users/new"><button id="ADDALL" type="submit">ADD USER</button></a>
-</form>
-<h2>Instructor Details</h2>
-<table clas="table-style">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone-Number</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% users.forEach( User => { %>
-      <tr>
-      <td><%= User.name %></td>
-      <td><%= User.email %></td>
-      <td><%= User.phone %></td>
-      <td><%= User.details ? 'Yes' : 'No' %></td>
-      <% }); %>
-
-  </tbody>
-</table>
-
-<%- include('../partials/footer') %>
-<h2>Student Report</h2>
-<table clas="table-style">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Grade (%)</th>
-      <th>Grade Details</th>
-      <th>Days of attendance</th>
-      <th>Modification</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    <% students.forEach( Student => { %>
-      <tr>
-      <td><%= Student.name %></td>
-
-      <td><%= Student.total %></td>
-      <td><a href="/homeworks/<%= Student._id %>">Grade Report</a></td>
-      <td><%= Student.attendanceCount %></td>
-      <td><a href="/students">Details</a></td>
-
-      </tr>
-      <% }); %>
-
-  </tbody>
-</table>
-
-
-
+				<td><%= Student.total %></td>
+				<td><a href="/homeworks/<%= Student._id %>">Grade Report</a></td>
+				<td><%= Student.attendanceCount %></td>
+				<td><a href="/students">Details</a></td>
+			</tr>
+			<% }); %>
+		</tbody>
+	</table>
+</div>
 <%- include('../partials/footer') %>
