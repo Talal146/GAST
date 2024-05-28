@@ -49,25 +49,25 @@ nav ul li a {
 
 
 
-.grade-table {
+.table-style {
   width: 60%;
   border-collapse: collapse;
   margin: 0 auto;
 }
 
-.grade-table th,
-.grade-table td {
+.table-style th,
+.table-style td {
   padding: 20px;
   text-align: center;
   border: 1px solid #ccc;
 }
 
-.grade-table thead th {
+.table-style thead th {
   background-color: #f0f0f0;
   font-weight: bold;
 }
 
-.grade-table tbody td {
+.table-style tbody td {
   background-color: #ffffff;
 }
 

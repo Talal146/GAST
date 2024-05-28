@@ -16,7 +16,6 @@ const studentSchema = new Schema({
   project: { type: [Number] },
   status: { 
     type: [attendanceSchema],
-    required: true,
     default: [] 
   },
   attendanceCount: { type: Number, default: 0 }
