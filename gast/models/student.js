@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const attendanceSchema = new Schema({
-  date: { type: Date, default: Date.now }, // Date of attendance
-  attended: { type: Boolean, required: true } // Indicates attendance status (true/false)
+  date: { type: Date, default: Date.now
+   }, 
+  attended: { type: Boolean, required: true } 
 });
 
 const studentSchema = new Schema({
@@ -24,11 +25,11 @@ const studentSchema = new Schema({
     timestamps: true
   });
 
-  // Helper method to update attendance status (optional)
+
 studentSchema.methods.updateAttendance = async function(attended) {
-  this.status.push({ attended }); // Add attendance record
+  this.status.push({ attended }); 
   this.attendanceCount = attended ? this.attendanceCount + 1 : this.attendanceCount; // Update count
-  await this.save(); // Save changes to the database
+  await this.save(); 
 };
 
 

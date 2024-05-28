@@ -198,6 +198,7 @@ const index = async (req, res, next) => {
           return student;
         })
       );    
+    
       
     res.render("students/attendance", { students: updatedStudents });
     } catch (error) {
@@ -214,5 +215,6 @@ const index = async (req, res, next) => {
     getStudents,
     submitGrades ,
     getStudents2,
-    submitAttendance
+    submitAttendance,
+    
   }
