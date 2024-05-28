@@ -20,16 +20,13 @@ const index = async (req, res) => {
 };
 
 const newhomework = async (req, res) => {
-	const student = await Student.findById(req.params.id);
-	res.render(`homeworks/${student._id}/new`);
+	res.render(`homeworks/new`);
 }
 
 const create = async (req, res) => {
 	try {
 		const newHomework = await homeworkModel.createHomework(req.body);
-		const student = await Student.findById(req.params.id);
-		homeworks.gradeWaight.push(req.body.explorerId);
-		res.redirect(`/homeworks/${student._id}`);
+		res.redirect(`/homeworks`);
 		
 	} catch (err) {
 		console.error(err);

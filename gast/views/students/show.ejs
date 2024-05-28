@@ -32,9 +32,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Availabe Details</th>
       <th>Grade (%)</th>
       <th>Grade Details</th>
       <th>Attendance (%)</th>
@@ -46,13 +43,10 @@
     <% students.forEach( Student => { %>
       <tr>
       <td><%= Student.name %></td>
-      <td><%= Student.email %></td>
-      <td><%= Student.phone %></td>
-      <td><%= Student.details ? 'Yes' : 'No' %></td>
       <td><%= Student.total %></td>
       <td><a href="/homeworks/<%= Student._id %>">Grade Report</a></td>
       <td><%= Student.attendance %></td>
-      <td><a href="/students">Edit</a></td>
+      <td><a href="/students">Details</a></td>
       </tr>
       <% }); %>
 
