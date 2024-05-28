@@ -56,6 +56,20 @@ const show = async (req, res) => {
 	}
 };
 
+ const editSkill = (req, res) => {
+	const skill = Skill.getOne(req.params.id);
+	res.render('skills/edit', {
+		skill
+	});
+  };
+  
+  const update = (req, res) => {
+	const skillId = req.params.id;
+	const updatedSkill = req.body.Skill;
+	Skill.updateOne(skillId, updatedSkill);
+	res.redirect('/skills');
+  };
+
 module.exports = {
 	index,
 	new: newhomework,

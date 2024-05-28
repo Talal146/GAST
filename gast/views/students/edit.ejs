@@ -21,11 +21,12 @@
   </tbody>
 </table>
 
-<form action="/students" method="POST">
+<form action="/students/<%= student._id %>" method="POST">
   <h2>Modify the student details</h2>
+  <p>"/students/<%= student._id %>"</p>
   <ul>
   <li><label for="name">Name:</li>
-    <input id="name" type="text" name="name">
+    <input id="name" type="text" name="name" value="<%= student.name %>">
   </label><br>
   <li><label>Email:</li>
     <input id="email" type="text" name="email">
@@ -35,10 +36,8 @@
   <li><label>Detalis Avaliable:
       <input id="check" type="checkbox" name="Detalis" value=false checked>
 </ul>
+<button>Update student</button>
+<button type="submit" formaction="/students/<%= student._id %>">Delete student</button>
 </form>
-
-
-<button id="submit" type="submit">Update student</button>
-
 
 <%- include('../partials/footer') %>
