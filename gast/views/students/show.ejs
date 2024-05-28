@@ -7,15 +7,13 @@
 
 
 </section>
-  <a href="/users/new"><button id="ADDALL" type="submit">ADD USER</button></a>
 </form>
-<h2>Instructor Details</h2>
+<h2>User Details</h2>
 <table clas="table-style">
   <thead>
     <tr>
       <th>Name</th>
       <th>Email</th>
-      <th>Phone-Number</th>
     </tr>
   </thead>
   <tbody>
@@ -23,8 +21,6 @@
       <tr>
       <td><%= User.name %></td>
       <td><%= User.email %></td>
-      <td><%= User.phone %></td>
-      <td><%= User.details ? 'Yes' : 'No' %></td>
       <% }); %>
 
   </tbody>
