@@ -13,11 +13,14 @@ require('dotenv').config()
 require('./config/database')
 require('./config/passport')
 
+
+var app = express();
 var indexRouter = require('./routes/index')
 var studentsRouter = require('./routes/students')
 var usersRouter = require('./routes/users')
 var homeworkRouter = require('./routes/homeworks')
 var app = express()
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
