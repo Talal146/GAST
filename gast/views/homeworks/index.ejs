@@ -1,3 +1,4 @@
+<%- include('../partials/header') %>
 <h2>homeworks</h2>
 <table id="list">
 	<thead>
@@ -10,18 +11,20 @@
 		</tr>
 	</thead>
 	<tbody>
-			<tr>
-		<% homeworks.forEach((homework) => { %>
+		<tr>
+			<% homeworks.forEach((homework) => { %>
+		</tr>
+
 		<tr>
 			<td><%= homework.name %></td>
 			<td><%= homework.deliverTime %></td>
 			<td><%= homework.gradeWaight %></td>
 			<td><%= homework.description %></td>
-			
+      
+			<td><% }); %></td>
 
-		<% }); %>
-		    <td><%= homeworks.total %></td>
-		</tr>	
+			<td><%= homeworks.total %></td>
+		</tr>
 	</tbody>
 </table>
 <%- include('../partials/footer') %>
