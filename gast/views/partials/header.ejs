@@ -10,11 +10,16 @@
 <nav>
     <ul>
         <li><a href="/">HOME</a></li>
-        <% if(user){ %>
+<% if(user){ %>
         <li><a href="/">COURSE DETAILS</a></li>
         <li><a href="/users/new">ADD INSTRUSTOR</a></li>
         <li><a href="/students/new">ADD STUDENT</a></li>
         <li><a href="/students/attendance">ATTENDANCE</a></li>
+        <li><a href="/logout">LOG OUT</a></li>
+        <% } else { %>
+        <li>  <a href="/auth/google" class="login">LOG IN&nbsp;</a></li>
+        </li> <img src="https://i.imgur.com/FHjYyi0.png"></a></li>
+        <% } %>  
     </ul>
 
 </nav>
