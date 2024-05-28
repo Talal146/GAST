@@ -38,6 +38,7 @@
       <th>Grade (%)</th>
       <th>Grade Details</th>
       <th>Attendance (%)</th>
+      <th>Modification</th>
 
     </tr>
   </thead>
@@ -51,6 +52,7 @@
       <td><%= Student.total %></td>
       <td><a href="/homeworks/<%= Student._id %>">Grade Report</a></td>
       <td><%= Student.attendance %></td>
+      <td><a href="/students">Edit</a></td>
       </tr>
       <% }); %>
 

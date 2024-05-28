@@ -46,9 +46,32 @@ async function show(req, res) {
   res.render('students/show', { title: 'Student details', students ,users});
   }
 
-  module.exports = {
+async function editStudent(req, res) {
+    const student = await Student.findById(req.params.id);
+    const students = await Student.find({});
+    res.render(`students/edit`, {student, students});
+    }
+
+async function updatedStudent(req, res) {
+      try {
+        const student = await Student.findById(req.params.id);
+        const { name, email, details } = req.body;
+          
+          // Find the student by ID and update the details
+          await Student.findByIdAndUpdate(id, { name, email, details });
+  
+          // Redirect to the student list page or any other desired page
+          res.redirect('/students');
+      }
+      catch (err) {
+        next(err);
+   }};
+
+module.exports = {
     new: newStudent,
     create,
     index,
-    show    
+    show,
+    edit: editStudent,
+    update: updatedStudent  
   };

@@ -19,8 +19,9 @@ const index = async (req, res) => {
 	
 };
 
-const newhomework = (req, res) => {
-	res.render('homeworks/new');
+const newhomework = async (req, res) => {
+	const student = await Student.findById(req.params.id);
+	res.render(`homeworks/${student._id}/new`);
 }
 
 const create = async (req, res) => {

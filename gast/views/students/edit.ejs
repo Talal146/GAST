@@ -1,0 +1,44 @@
+<%- include('../partials/header') %>
+<table id="list">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+
+        <td><%= student.name %></td>
+        <td><%= student.email %></td>
+        <td><%= student.phone %></td>
+        <td><%= student.details ? 'Yes' : 'No' %></td>
+
+        </tr>
+      
+  </tbody>
+</table>
+
+<form action="/students" method="POST">
+  <h2>Modify the student details</h2>
+  <ul>
+  <li><label for="name">Name:</li>
+    <input id="name" type="text" name="name">
+  </label><br>
+  <li><label>Email:</li>
+    <input id="email" type="text" name="email">
+  </label><br>
+  <li><label for ="phone">Phone-number</li>
+    <input id="phone" type="text" name="phone">
+  <li><label>Detalis Avaliable:
+      <input id="check" type="checkbox" name="Detalis" value=false checked>
+</ul>
+</form>
+
+
+<button id="submit" type="submit">Update student</button>
+
+
+<%- include('../partials/footer') %>

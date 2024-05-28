@@ -24,24 +24,4 @@
 		</tr>	
 	</tbody>
 </table>
-
-<table class="grade-table">
-	<thead>
-	  <tr>
-		<th>Student</th>
-		<% let numHomeworks = 10 %>
-	<% for (let i = 1; i <= numHomeworks; i++) { %>
-        <th><%= i %></th>
-
-      <% } %>
-		<% let numProjects = 2 %>
-		<% for (let i = 1; i <= numProjects; i++) { %>
-
-		  <th><%= i %></th>
-		<% } %>
-		<tr>
-		  <td colspan="<%= numHomeworks + numProjects + 1 %>">
-			<button id="submit" type="submit">ADD GRADES</button>
-		
-
 <%- include('../partials/footer') %>
