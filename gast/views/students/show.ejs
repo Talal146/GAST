@@ -34,7 +34,7 @@
       <th>Name</th>
       <th>Grade (%)</th>
       <th>Grade Details</th>
-      <th>Attendance (%)</th>
+      <th>Days of attendance</th>
       <th>Modification</th>
 
     </tr>
@@ -45,7 +45,7 @@
       <td><%= Student.name %></td>
       <td><%= Student.total %></td>
       <td><a href="/homeworks/<%= Student._id %>">Grade Report</a></td>
-      <td><%= Student.attendance %></td>
+      <td><%= Student.attendanceCount %></td>
       <td><a href="/students">Details</a></td>
       </tr>
       <% }); %>

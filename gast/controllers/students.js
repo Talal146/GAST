@@ -39,6 +39,32 @@ const index = async (req, res, next) => {
        next(err);
   }};
 
+  const getStudents = async (req, res) => {
+    try {
+      const students = await Student.find().sort('name')
+      res.render('students/attendance', { students });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error retrieving students!');
+    }
+  };
+  const submitAttendance = async (req, res) => {
+    try {
+      const attendanceStatus = req.body;
+      const updatedStudents = await Promise.all(
+        Object.entries(attendanceStatus).map(async ([studentId, attendance]) => {
+          const student = await Student.findById(studentId);
+          if (!student) return false;
+          await student.updateAttendance(attendance === 'true');
+          return student;
+        })
+      );
+    res.render("students/attendance", { students: updatedStudents });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
 async function show(req, res) {
   console.log("grade")
   const users = await User.find({});
@@ -76,7 +102,9 @@ module.exports = {
     show,
     edit: editStudent,
     update: updatedStudent,
-    delete: deletedStudent  
+    delete: deletedStudent,  
+    getStudents,
+    submitAttendance
   };
 
   
