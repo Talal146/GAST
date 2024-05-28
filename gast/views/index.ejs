@@ -1,19 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-  <nav>
-    <button>Home</button>
-    <% if (user) { %>
-      <a href="/logout">LOG OUT</a>
-    <% } else { %>
-      <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-    <% } %>  
-  </nav>
 
+<%- include('./partials/header') %>
   <img src ="https://i.pinimg.com/736x/94/09/7e/94097e458fbb22184941be57aaab2c8f.jpg">;
 
     <h1>Welcome to my website!</h1>
