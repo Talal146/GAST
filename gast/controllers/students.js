@@ -82,6 +82,6 @@ const index = async (req, res, next) => {
     index,
     show ,
     getStudents,
-    submitAttendance,
+    submitAttendance
     
   }
