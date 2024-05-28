@@ -36,28 +36,25 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Details Availabe</th>
       <th>Grade (%)</th>
+      <th>Grade Details</th>
       <th>Days of attendance</th>
+      <th>Modification</th>
+
     </tr>
   </thead>
   <tbody>
     <% students.forEach( Student => { %>
       <tr>
       <td><%= Student.name %></td>
-      <td><%= Student.email %></td>
-      <td><%= Student.phone %></td>
-      <td><%= Student.details ? 'Yes' : 'No' %></td>
-      <td><%= Student.totalGrade %></td>
-      <td><a href="/homeworks">grade</a></td>
+
+      <td><%= Student.total %></td>
+      <td><a href="/homeworks/<%= Student._id %>">Grade Report</a></td>
       <td><%= Student.attendanceCount %></td>
+      <td><a href="/students">Details</a></td>
+
       </tr>
       <% }); %>
-
-      <a href="/students/grade"><button id="ADD" type="submit">Grade Report</button></a>
-
 
   </tbody>
 </table>

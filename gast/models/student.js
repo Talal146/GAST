@@ -12,6 +12,7 @@ const studentSchema = new Schema({
   email: { type: String, required: true },
   phone: { type: Number },
   details: { type:Boolean},
+
   homework: [{ type: Schema.Types.ObjectId, ref: 'homework' }],
   project: { type: [Number] },
   status: { 
@@ -20,7 +21,10 @@ const studentSchema = new Schema({
   },
   attendanceCount: { type: Number, default: 0 }
   }, 
+
   {
+
+
     timestamps: true
   });
 

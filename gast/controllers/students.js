@@ -42,11 +42,11 @@ const index = async (req, res, next) => {
   const show = async(req, res) =>{
   const users = await User.find({});
   const students = await Student.find({});
+    
   res.render('students/show', { title: 'Student details', students ,users});
   }
 
-
-
+  
   const getStudents = async (req, res) => {
     try {
       const students = await Student.find().sort('name')
@@ -77,13 +77,34 @@ const index = async (req, res, next) => {
       console.error(error);
     }
   }
-  
-  module.exports = {
+
+async function editStudent(req, res) {
+    const student = await Student.findById(req.params.id);
+    const students = await Student.find({});
+    res.render(`students/edit`, {student, students});
+    }
+
+async function updatedStudent (req, res) { 
+    const { name, email, details } = req.body;
+    await Student.findByIdAndUpdate(req.params.id,{ name, email, details })
+    res.redirect('/students');
+   };
+
+async function deletedStudent (req, res) { 
+    await Student.findByIdAndDelete(req.params.id)
+    res.redirect('/students');
+   };
+
+module.exports = {
     new: newStudent,
     create,
     index,
-    show ,
+    show,
+    edit: editStudent,
+    update: updatedStudent,
+    delete: deletedStudent,  
     getStudents,
     submitAttendance
+  };
 
-  }
+  
