@@ -23,7 +23,6 @@
 
 <form action="/students/<%= student._id %>" method="POST">
   <h2>Modify the student details</h2>
-  <p>"/students/<%= student._id %>"</p>
   <ul>
   <li><label for="name">Name:</li>
     <input id="name" type="text" name="name" value="<%= student.name %>">
@@ -33,11 +32,11 @@
   </label><br>
   <li><label for ="phone">Phone-number</li>
     <input id="phone" type="text" name="phone">
-  <li><label>Detalis Avaliable:
-      <input id="check" type="checkbox" name="Detalis" value=false checked>
+  <li><label>Details Avaliable:
+      <input id="check" type="checkbox" name="Details" value=true checked>
 </ul>
 <button>Update student</button>
-<button type="submit" formaction="/students/<%= student._id %>">Delete student</button>
+<button type="submit" formaction="/students/<%= student._id %>/delete">Delete student</button>
 </form>
 
 <%- include('../partials/footer') %>

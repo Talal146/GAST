@@ -9,7 +9,7 @@ router.post('/', studentsCtrl.create);
 router.get('/details', studentsCtrl.show);
 router.get('/:id/edit', studentsCtrl.edit);
 router.post('/:id', studentsCtrl.update);
-router.post('/:id', studentsCtrl.delete);
+router.post('/:id/delete', studentsCtrl.delete);
 
 
 module.exports = router;
