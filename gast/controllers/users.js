@@ -39,7 +39,7 @@ const index = async (req, res, next) => {
   }};
 
 async function show(req, res) {
-    res.render('users/show', { title: 'Student details', User});
+    res.render('users/show', { title: 'User details', User});
   }
 
   module.exports = {
