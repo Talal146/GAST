@@ -11,9 +11,8 @@ router.get('/new', ensureLoggedIn,studentsCtrl.new);
 
 router.get('/grade', ensureLoggedIn,studentsCtrl.grade);
 
-
-router.get('/grade', studentsCtrl.grade);
-
+router.get('/attendance', studentsCtrl.getStudents2);
+router.post('/attendance', studentsCtrl.submitAttendance);
 
 router.post('/',ensureLoggedIn, studentsCtrl.create);
 

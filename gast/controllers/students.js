@@ -1,3 +1,4 @@
+const student = require('../models/student');
 const Student = require('../models/student');
 const User = require('../models/user');
 
@@ -53,10 +54,10 @@ const index = async (req, res, next) => {
 
   // const updateGrades = async (req, res) => {
   //     try {
-  //       const studentsGrades = req.body.grades;
+  //       const grades = req.body.grades;
     
   //       // Iterate over the grades object to update student documents
-  //       for (const studentId in studentsGrades) {
+  //       for (const studentId in grades) {
   //         const student = await Student.findById(studentId);
   //         if (!student) {
   //           // Handle case where student not found
@@ -65,16 +66,16 @@ const index = async (req, res, next) => {
   //         }
     
   //         // Update student's homework grades
-  //         if (studentsGrades[studentId].homework) {
-  //           student.homework = studentsGrades[studentId].homework;
+  //         if (grades[studentId].homework) {
+  //           student.homework = grades[studentId].homework;
   //         }
     
   //         // Update student's project grades
-  //         if (studentsGrades[studentId].project) {
-  //           student.project = studentsGrades[studentId].project;
+  //         if (grades[studentId].project) {
+  //           student.project = grades[studentId].project;
   //         }
     
-  //         console.log(studentsGrades)
+  //         console.log(grades)
   //         // Save the updated student document
   //         await student.save();
   //       }
@@ -90,45 +91,131 @@ const index = async (req, res, next) => {
   //   };
 
 
-  exports.getStudents = async (req, res) => {
+
+
+
+  // const updateGrades = async (req, res) => {
+  //     try {
+  //       const grades = req.body.grades;
+    
+  //       // Iterate over the grades object to update student documents
+  //       for (const studentId in grades) {
+  //         const student = await Student.findById(studentId);
+  //         if (!student) {
+  //           // Handle case where student not found
+  //           console.log(`Student with ID ${studentId} not found.`);
+  //           continue;
+  //         }
+    
+  //         // Update student's homework grades
+  //         if (grades[studentId].homework) {
+  //           student.homework = grades[studentId].homework;
+  //         }
+    
+  //         // Update student's project grades
+  //         if (grades[studentId].project) {
+  //           student.project = grades[studentId].project;
+  //         }
+    
+  //         console.log(grades)
+  //         // Save the updated student document
+  //         await student.save();
+  //       }
+    
+  //       // Redirect or send response indicating successful update
+  //       res.redirect('/students'); // Replace '/students' with the appropriate URL
+  //     } catch (error) {
+  //       // Handle any errors that occurred during the update process
+  //       console.error('Error updating student grades:', error);
+  //       // Redirect or send an error response
+  //       res.status(500).json({ error: 'An error occurred while updating student grades.' });
+  //     }
+  //   };
+
+  const getStudents = async (req, res) => {
     try {
       const students = await Student.find();
-      res.json(students);
+      res.render('students/grade', { students }); 
     } catch (error) {
       console.error(error);
       res.status(500).send('Error retrieving students!');
     }
   };
-  
+
   const submitGrades = async (req, res) => {
-    const grades = req.body.grades;
-  
     try {
-      for (const studentId in grades) {
-        const studentGrades = grades[studentId];
-        const update = {
-          $set: {
-            homework: studentGrades.homework,
-            project: studentGrades.project
+      const grades = req.body;
+      console.log('grades', grades);
+      
+      const ids = Object.keys(grades);
+      let totalGrade = 0;
+      
+      ids.forEach(
+        async id => {
+        let gradeArray = [];
+        const gradeValue = grades[id].map(grade => parseInt(grade))
+      
+        let totalForId = 0;
+        gradeArray.forEach(grade => {
+          if (!isNaN(grade)) {
+            totalForId += grade;
+          } else {
+            console.log(`Invalid grade: ${grade}`);
           }
-        };
-  
-        await Student.findOneAndUpdate({ _id: studentId }, update);
-      }
-  
-      res.send('Grades submitted successfully!');
+        });
+        totalGrade += totalForId;
+        console.log('homework: ',gradeArray);
+        console.log(`total for ID ${id}: ${totalForId}`);
+        console.log(`total: ${totalGrade}`);
+        console.log();
+        console.log(`ID: ${id}`);
+        console.log(`Homework:`,gradeValue);
+      });
+      
     } catch (error) {
       console.error(error);
       res.status(500).send('Error submitting grades!');
     }
   };
+
+  const getStudents2 = async (req, res) => {
+    try {
+      const students = await Student.find().sort('name')
+      res.render('students/attendance', { students }); 
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error retrieving students!');
+    }
+  };
+
+  const submitAttendance = async (req, res) => {
+    try {
+      const attendanceStatus = req.body;
+      const updatedStudents = await Promise.all(
+        Object.entries(attendanceStatus).map(async ([studentId, attendance]) => {
+          const student = await Student.findById(studentId);
+          if (!student) return false; 
+          await student.updateAttendance(attendance === 'true');
+          return student;
+        })
+      );    
+    
+      
+    res.render("students/attendance", { students: updatedStudents });
+    } catch (error) {
+      console.error(error);
+    }
+  }
   
-  module.exports = {
+   module.exports = {
     new: newStudent,
     grade,
     create,
     index,
     show ,
-    submitGrades
-    // updateGrades   
-  };
+    getStudents,
+    submitGrades ,
+    getStudents2,
+    submitAttendance,
+    
+  }

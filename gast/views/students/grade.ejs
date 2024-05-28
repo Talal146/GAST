@@ -14,7 +14,52 @@
   </thead>
   <tbody>
     <form action="/students/grade" method="POST">
-    
+
+    <br>
+    <li><label for="project">Project:</li></label>
+      <input id="project" type="number" name="project">
+    <br>
+    <li><label for="homework">homework:</li></label>
+      <input id="homework" type="number" name="homework">
+    <br>
+    <button id="submit" type="submit">ADD GRADE</button>
+  </ul>
+
+  </form> -->
+
+  <!-- grades-table.ejs -->
+  <table class="grade-table">
+    <thead>
+      <tr>
+        <th>Student</th>
+        <% let numHomeworks = 10 %>
+        <% for (let i = 1; i <= numHomeworks; i++) { %>
+          <th>HW <%= i %></th>
+        <% } %>
+      </tr>
+    </thead>
+    <tbody>
+      <form action="/students/grade" method="POST">
+        <% students.forEach((student) => { %>
+          <tr>
+            <td><%= student.name %></td>
+            <% for (let i = 0; i < numHomeworks; i++) { %>
+              <td>
+                <input type="number" name="<%= student._id %>"value="<%= student.homework[i] || 0 %>">
+              </td>
+            <% } %>
+          </tr>
+        <% }); %>
+        <tr>
+          <td colspan="<%= numHomeworks + 1 %>">
+            <button id="submit" type="submit">ADD GRADES</button>
+          </td>
+        </tr>
+      </form>
+    </tbody>
+  </table>
+
+
       <% students.forEach((student) => { %>
         <tr>
           <td><%= student.name %></td>
