@@ -1,71 +1,105 @@
 body {
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
-  background-image: url(https://png.pngtree.com/thumb_back/fh260/back_pic/03/82/23/2357c6c0ce98502.jpg);
-  background-repeat: no-repeat;
-  background-size:cover ;
+	font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+	background-image: url(https://images.template.net/111221/free-plain-chalkboard-background-w9n29.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	min-height: 100vh;
 }
-
+h1 {
+	text-align: center;
+}
 a {
-  color: #00b7ff;
+	color: #00b7ff;
 }
 
-img {
-  position: relative;
-  margin-top: 6vh;
-  height: 12vh;
-  width: 12vh;
+.software {
+	text-align: center;
 }
 
-div > h2 {
-  text-align: center;
-}
-
-.database {
-  margin-left: 50vh;
-  margin-top: 5vh;
-}
-
-.un {
-  margin-left: 100vh;
-  margin-top: -30vh;
+#course {
+	text-align: center;
 }
 
 nav {
-  backdrop-filter: blur(30px);
-  box-shadow: 0px 0px 30px rgba(227, 228, 237, o.37);
-  border: 2px solid rgba(255, 255, 255, 0.18);
+	backdrop-filter: blur(30px);
+	box-shadow: 0px 0px 30px rgba(227, 228, 237, o.37);
+	border: 2px solid rgba(255, 255, 255, 0.18);
 }
-
+nav ul {
+	padding: 0 10px;
+	display: flex;
+	align-content: center;
+	justify-content: space-between;
+	align-items: center;
+}
 nav ul li {
-  display: inline-block;
-  padding: 15px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	display: inline-flex;
+	flex-direction: row;
+	justify-content: center;
+	padding: 10px;
 }
 
 nav ul li a {
-  color: #fff;
-  text-decoration: none;
+	color: #fff;
+	text-decoration: none;
 }
-
-
-.table-style {
-  width: 60%;
-  border-collapse: collapse;
-  margin: 0 auto;
-}
-
-.table-style th,
-.table-style td {
-  padding: 20px;
-  text-align: center;
-  border: 1px solid #ccc;
-}
-
-.table-style thead th {
-  background-color: #f0f0f0;
-  font-weight: bold;
+table td {
+	padding: 20px;
+	margin: 40px;
+	text-align: center;
+	border: 1px solid #ccc;
+	font-weight: bold;
+	color: #ccc;
 }
 
 .table-style tbody td {
-  background-color: #ffffff;
+	background-color: #ffffff;
 }
-
+nav li a img {
+	width: 35px;
+}
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}
+.mainpagebtn {
+	padding: 17px 40px;
+	border-radius: 50px;
+	cursor: pointer;
+	border: 0;
+	background-color: white;
+	box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	font-size: 15px;
+	transition: all 0.5s ease;
+}
+.mainpagebtn:active {
+	letter-spacing: 3px;
+	background-color: rgb(52, 72, 61, 1);
+	color: hsl(0, 0%, 100%);
+	box-shadow: rgb(52, 72, 61, 1) 0px 0px 0px 0px;
+	transform: translateY(10px);
+	transition: 100ms;
+}
+.mainpagebtn:hover {
+	letter-spacing: 3px;
+	background-color: rgb(52, 72, 61, 1);
+	color: hsl(0, 0%, 100%);
+	box-shadow: rgb(52, 72, 61, 1) 0px 7px 29px 0px;
+}
+.instable {
+	position: absolute;
+	left: 5%;
+}
+.studtable {
+	position: absolute;
+	left: 30%;
+	top: 40%;
+}

@@ -1,6 +1,12 @@
+<%- include('../partials/header') %>
 <h2>homeworks</h2>
-  <a href="/homeworks/:id/new"><button id="ADD" type="submit">ADD GRADE</button></a>
-  <a href="/users/new"><button id="ADDALL" type="submit">ADD USER</button></a>
+<a href="/homeworks/:id/new"
+	><button
+		id="ADD"
+		type="submit">
+		ADD GRADE
+	</button></a
+>
 <table id="list">
 	<thead>
 		<tr>
@@ -13,20 +19,19 @@
 		</tr>
 	</thead>
 	<tbody>
-			<tr>
+		<tr>
 			<td><%= student.name %></td>
-        </tr>
+		</tr>
 		<% homeworks.forEach((homework) => { %>
 		<tr>
 			<td><%= homework.name %></td>
 			<td><%= homework.deliverTime %></td>
 			<td><%= homework.gradeWaight %></td>
 			<td><%= homework.description %></td>
-			<td>
-            <% }); %>
-            <td><%= homeworks.total %></td>
+			<td><% }); %></td>
+
+			<td><%= homeworks.total %></td>
 		</tr>
-		
 	</tbody>
 </table>
 
