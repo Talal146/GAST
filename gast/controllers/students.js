@@ -6,9 +6,10 @@ const newStudent = (req, res) => {
 	res.render('students/new');
 }
 
-const grade =async (req, res) => {
-  const students = await Student.find({}).sort();
-	res.render('students/grade',{students});
+
+async function grade(req, res){
+  const students = await Student.find({});
+  res.render('students/grade', { title: 'Student details', students});
 }
 
 const create = async(req, res) => {

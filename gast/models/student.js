@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 const attendanceSchema = new Schema({
   date: { type: Date, default: Date.now
@@ -12,7 +12,7 @@ const studentSchema = new Schema({
   email: { type: String, required: true },
   phone: { type: Number },
   details: { type:Boolean},
-  homework: { type: [Number] },
+  homework: [{ type: Schema.Types.ObjectId, ref: 'homework' }],
   project: { type: [Number] },
   status: { 
     type: [attendanceSchema],
@@ -25,7 +25,6 @@ const studentSchema = new Schema({
     timestamps: true
   });
 
-
 studentSchema.methods.updateAttendance = async function(attended) {
   this.status.push({ attended }); 
   this.attendanceCount = attended ? this.attendanceCount + 1 : this.attendanceCount; // Update count
@@ -34,3 +33,4 @@ studentSchema.methods.updateAttendance = async function(attended) {
 
 
 module.exports = mongoose.model('Student', studentSchema);
+
