@@ -67,7 +67,10 @@ const index = async (req, res, next) => {
           await student.updateAttendance(attendance === 'true');
           return student;
         })
-      );    
+
+    
+      );  
+     
     
     res.render("students/attendance", { students: updatedStudents });
     } catch (error) {
@@ -82,5 +85,5 @@ const index = async (req, res, next) => {
     show ,
     getStudents,
     submitAttendance
-    
+
   }
