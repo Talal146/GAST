@@ -1,6 +1,12 @@
 <%- include('../partials/header') %>
 <form action="/homeworks" method="POST">
   <h2>Add a New Task</h2>
+  <label for="student">Select Student:</label>
+  <select name="student" id="student">
+      <% students.forEach(student => { %>
+          <option value="<%= student._id %>"><%= student.name %></option>
+      <% }); %>
+  </select>
   <ul>
   <li>
     <label for="name">Name:

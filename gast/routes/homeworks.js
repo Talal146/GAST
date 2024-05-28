@@ -8,4 +8,5 @@ router.get('/new', ensureLoggedIn, homeworksCtrl.new);
 router.post('/', ensureLoggedIn, homeworksCtrl.create);
 router.get('/:id', ensureLoggedIn, homeworksCtrl.show);
 
+
 module.exports = router;
