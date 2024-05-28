@@ -1,5 +1,6 @@
 const Student = require('../models/student');
 const User = require('../models/user');
+const Homeworks = require('../models/homework');
 
 const newStudent = (req, res) => {
 	res.render('students/new');
@@ -42,7 +43,7 @@ const index = async (req, res, next) => {
   const show = async(req, res) =>{
   const users = await User.find({});
   const students = await Student.find({});
-    
+  //const homeworks = await Homeworks.find({}); 
   res.render('students/show', { title: 'Student details', students ,users});
   }
 

@@ -43,15 +43,14 @@
     <% students.forEach( Student => { %>
       <tr>
       <td><%= Student.name %></td>
-
       <td><%= Student.total %></td>
       <td><a href="/homeworks/<%= Student._id %>">Grade Report</a></td>
       <td><%= Student.attendanceCount %></td>
       <td><a href="/students">Details</a></td>
-
-      </tr>
       <% }); %>
+      
 
+    </tr>
   </tbody>
 </table>
 
