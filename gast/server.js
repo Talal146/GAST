@@ -41,13 +41,8 @@ app.use(passport.session())
 
 // Authentication Middleware
 app.use(function (req, res, next) {
-  const user = req.user || null
-  res.locals.user = user
-  user ||
-  allowedRoutes.includes(req.path) ||
-  req.path.startsWith('/oauth2callback')
-    ? next()
-    : res.sendStatus(401)
+  res.locals.user = req.user
+  next()
 })
 
 app.use('/', indexRouter)

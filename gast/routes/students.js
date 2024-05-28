@@ -1,20 +1,22 @@
 const express = require('express');
 const router = express.Router();
 
+const ensureLoggedIn = require('../config/ensureLoggedIn')
+
 const studentsCtrl = require('../controllers/students');
 
-router.get('/', studentsCtrl.index);
+router.get('/', ensureLoggedIn,studentsCtrl.index);
 
-router.get('/new', studentsCtrl.new);
+router.get('/new', ensureLoggedIn,studentsCtrl.new);
+
+router.get('/grade', ensureLoggedIn,studentsCtrl.grade);
+
 
 router.get('/grade', studentsCtrl.grade);
 
 
-router.get('/grade', studentsCtrl.grade);
+router.post('/',ensureLoggedIn, studentsCtrl.create);
 
-
-router.post('/', studentsCtrl.create);
-
-router.get('/:id', studentsCtrl.show);
+router.get('/:id', ensureLoggedIn,studentsCtrl.show);
 
 module.exports = router;
