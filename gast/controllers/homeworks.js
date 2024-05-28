@@ -1,6 +1,7 @@
 var homeworkModel = require('../models/homework');
 const Student = require('../models/student');
 
+
 const index = async (req, res) => {
 	try {
 		const homeworks = await homeworkModel.getAllHomeworks().lean();
@@ -22,12 +23,21 @@ const index = async (req, res) => {
 };
 
 const newhomework = async (req, res) => {
-	res.render(`homeworks/new`);
-};
+
+	try {
+	const students = await Student.find({});
+	res.render(`homeworks/new`, {students});
+	} catch (err) {
+        console.error(err);
+        res.redirect('/homeworks');
+    }
+}
+
 
 const create = async (req, res) => {
 	try {
 		const newHomework = await homeworkModel.createHomework(req.body);
+		student.homework = 
 		res.redirect(`/homeworks`);
 	} catch (err) {
 		console.error(err);
