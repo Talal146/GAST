@@ -11,9 +11,9 @@
       <form action="/students/attendance" method="POST">
         <% students.forEach((student) => { %>
           <tr>
-            <td><%= student.name %></td>
+            <td><%=student.name %></td>
             <td>
-              <input type="checkbox" name="<%= student._id %>" value="true"> Present
+              <input type="checkbox" name="<%=student._id %>" value="true"> Present
             </td>
           </tr>
         <% }); %>
