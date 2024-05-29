@@ -1,4 +1,3 @@
-
 body {
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
   background-image: url(https://images.template.net/111221/free-plain-chalkboard-background-w9n29.jpg);
@@ -186,3 +185,41 @@ footer {
   display: inline;
 }
 
+.std-att-tble-cont {
+  width: 100%;
+  height: calc(100dvh - 200px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.std-att-tble-cont form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.std-att-tble-cont table
+
+ {
+  width: 60%;
+}
+
+.std-att-tble-cont table,
+.std-att-tble-cont table th,
+.std-att-tble-cont table td,
+.std-att-tble-cont table tr,
+.std-att-tble-cont table tbody {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+.std-att-tble-cont button {
+  margin-top: 25px;
+  padding: 15px 25px;
+  border-radius: 15px;
+  cursor: pointer;
+}
