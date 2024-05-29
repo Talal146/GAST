@@ -1,5 +1,6 @@
 const Student = require('../models/student');
 const User = require('../models/user');
+const Homework = require('../models/homework');
 
 const newStudent = (req, res) => {
 	res.render('students/new');
@@ -40,10 +41,21 @@ const index = async (req, res, next) => {
   }};
 
   const show = async(req, res) =>{
+  const student = await Student.findById(req.params.id).populate('homeworks');
   const users = await User.find({});
-  const students = await Student.find({});
-  //const homeworks = await Homeworks.find({}); 
-  res.render('students/show', { title: 'Student details', students ,users});
+  const homework = await Homework.getAllHomeworks().lean();
+  const students= await Student.find({});
+  const homeworks = await Homework.getAllHomeworks(); 
+  const homeworkMembers = students.homeworks;
+  const homeworkNames = Array.isArray(homeworkMembers) ? 
+  homeworkMembers.map((homeworksMembers) => homeworksMembers.name) : [];
+  
+  const availableHomeworks = homeworks.filter((homework)=> {
+    if(!homeworkNames.includes(homework.name)) {
+      return homework;
+     }
+   })
+  res.render('students/show', { title: 'Student details', students ,users,availableHomeworks,homework});
   }
 
   

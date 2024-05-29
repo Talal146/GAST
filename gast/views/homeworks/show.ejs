@@ -1,3 +1,4 @@
+<%- include('../partials/header') %>
 <h2>homeworks</h2>
   <a href="/homeworks/new"><button id="ADD" type="submit">ADD GRADE</button></a>
 
@@ -14,7 +15,7 @@
 	</thead>
 	<tbody>
 			<tr>
-			<td><%= student.name %></td>
+	  <td><%= student.name %></td>
         </tr>
 		<% homeworks.forEach((homework) => { %>
 		<tr>
@@ -26,7 +27,7 @@
             <% }); %>
             <td><%= homeworks.total %></td>
 		</tr>
-		
+
 	</tbody>
 </table>
 
