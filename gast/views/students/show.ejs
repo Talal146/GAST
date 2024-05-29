@@ -1,32 +1,26 @@
 <%- include('../partials/header') %>
 <link rel='stylesheet' href='/stylesheets1/style.css' />
 
-  <a href="/students/new"><button id="ADD" type="submit">ADD STUDENT</button></a>
-  <a href="/students"><button id="ADDALL" type="submit">ALL STUDENTS</button></a>
 
-</section>
-</form>
-<h2>User Details</h2>
-<table clas="table-style">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
+
+<div class="student-tables-cont">
+  <div class="inst-det-header"><h2>Instructor(s) Details</h2></div>
+<table class="hiddintable">
+  <tr>
+  <th>Name</th>
+  <th>Email</th> 
+</tr>
     <% users.forEach( User => { %>
-      <tr>
-      <td><%= User.name %></td>
-      <td><%= User.email %></td>
+    <tr>
+      <th><%= User.name %></th>
+      <th><%= User.email %></th>
+    </tr>
       <% }); %>
 
-  </tbody>
-</table>
+    </table>
 
-<%- include('../partials/footer') %>
 <h2>Student Report</h2>
-<table clas="table-style">
+<table class="student-details-table">
   <thead>
     <tr>
       <th>Name</th>
@@ -34,7 +28,6 @@
       <th>Grade Details</th>
       <th>Days of attendance</th>
       <th>Modification</th>
-
     </tr>
   </thead>
   <tbody>
@@ -51,6 +44,7 @@
     </tr>
   </tbody>
 </table>
+</div>
 <%- include('../partials/footer') %>
 
 
