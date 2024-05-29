@@ -71,7 +71,7 @@ const index = async (req, res, next) => {
       );  
   
     
-    res.redirect("/students/attendance")
+    res.redirect("/students/details")
     } catch (error) {
       console.error(error);
     }
