@@ -1,20 +1,24 @@
 <%- include('../partials/header') %>
-<link rel='stylesheet' href='/stylesheets/style.css' />
+<link rel="stylesheet" href="/stylesheets/style.css" />
+<div class="new-instrc-form-cont">
 <form action="/users" method="POST">
   <h2>Add a New instructor</h2>
-  <ul>
-  <li><label for="name">Name:</li>
-    <input id="name" type="text" name="name">
-  </label><br>
-  <li><label>Email:</li>
-    <input id="emali" type="text" name="email">
-  </label><br>
-  <li><label for ="phone">Phone-number</li>
-    <input id="phone" type="number" name="phone">
-  <li><label>Detalis Avaliable:
-      <input id="check" type="checkbox" name="Detalis" value=false checked>
-  </label><br></li>
-  <button id="submit" type="submit">ADD USER</button>
-</ul>
+
+  <label for="name">Name:</label>
+  <input id="name" type="text" name="name" />
+  <br />
+  <label>Email:</label>
+  <input id="emali" type="text" name="email" />
+  <br />
+  <label for="phone">Phone-number</label>
+  <input id="phone" type="number" name="phone" />
+  <div class="checkbox">
+  <label>Detalis Avaliable:</label>
+  <input id="check" type="checkbox" name="Detalis" value="false" checked />
+  </div>
+  <br />
+  <div class="new-inst-btn">
+  <button id="submit" type="submit">ADD USER</button></div>
 </form>
+</div>
 <%- include('../partials/footer') %>
