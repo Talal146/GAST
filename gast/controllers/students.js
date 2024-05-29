@@ -41,21 +41,19 @@ const index = async (req, res, next) => {
   }};
 
   const show = async(req, res) =>{
-  const student = await Student.findById(req.params.id).populate('homeworks');
+    console.log(`!Student id ${req.params.id}`)
+
   const users = await User.find({});
-  const homework = await Homework.getAllHomeworks().lean();
-  const students= await Student.find({});
-  const homeworks = await Homework.getAllHomeworks(); 
-  const homeworkMembers = students.homeworks;
-  const homeworkNames = Array.isArray(homeworkMembers) ? 
-  homeworkMembers.map((homeworksMembers) => homeworksMembers.name) : [];
-  
-  const availableHomeworks = homeworks.filter((homework)=> {
-    if(!homeworkNames.includes(homework.name)) {
-      return homework;
-     }
-   })
-  res.render('students/show', { title: 'Student details', students ,users,availableHomeworks,homework});
+
+  let students= await Student.find({}).populate('homeworks');
+  console.log(students);
+  students = students.map(student => {
+    let totalGrade = student.homeworks.reduce((total, grade) => total + grade.gradeWaight, 0);
+    student.grade=student.homeworks.length !==0? totalGrade*100/(student.homeworks.length*10):0
+    return student
+  })
+
+  res.render('students/show', { title: 'Student details', students ,users});
   }
 
   

@@ -58,18 +58,15 @@ const create = async (req, res) => {
 
 const show = async (req, res) => {
 	try {
-		// const students = await Student.find({});
 		const student = await Student.findById(req.params.id).populate('homeworks');
-		const Homeworks = await homeworkModel.getAllHomeworks().lean();
 		const homeworks = student.homeworks;
 
-		let totalGrade = Homeworks.reduce((total, grade) => total + grade.gradeWaight, 0);
-		const sum = Homeworks.length;
+		let totalGrade = homeworks.reduce((total, grade) => total + grade.gradeWaight, 0);
+		const sum = homeworks.length;
 
-		Homeworks.total=(totalGrade/sum)*(100/10);
+		homeworks.total=(totalGrade/sum)*(100/10);
 
 		res.render(`homeworks/show`, {
-			// students,
 			homeworks,
 			student,
 			totalGrade,
