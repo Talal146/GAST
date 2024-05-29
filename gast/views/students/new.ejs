@@ -1,20 +1,23 @@
+
 <%- include('../partials/header') %>
-
-<form action="/students" method="POST">
+<div class="new-std-form-cont">
+<form action="/students" method="POST" class="new-std-form">
   <h2>Add a New Student</h2>
-  <ul>
-  <li><label for="name">Name:</li>
-    <input id="name" type="text" name="name">
-  </label><br>
-  <li><label>Email:</li>
-    <input id="email" type="text" name="email">
-  </label><br>
-  <li><label for ="phone">Phone-number</li>
-    <input id="phone" type="number" name="phone">
-  <li><label>Detalis Avaliable:
-      <input id="check" type="checkbox" name="Detalis" value=false checked>
-  </label><br></li>
-  <button id="submit" type="submit">ADD STUDENT</button>
-</ul>
 
+  <label for="name">Name:</label>
+  <input id="name" type="text" name="name" />
+  <br />
+  <label>Email:</label>
+  <input id="email" type="text" name="email" />
+  <br />
+  <label for="phone">Phone-number</label>
+  <input id="phone" type="tel" name="phone" required pattern="[0-9]{8}" />
+  <div class="checkbox">
+  <label>Detalis Avaliable:</label>
+  <input id="check" type="checkbox" name="Detalis" value="false" checked />
+  </div>
+  <br />
+  <button id="submit" type="submit">ADD STUDENT</button>
+</form>
+</div>
 <%- include('../partials/footer') %>
