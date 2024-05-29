@@ -1,5 +1,6 @@
 const Student = require('../models/student');
 const User = require('../models/user');
+const Homework = require('../models/homework');
 
 const newStudent = (req, res) => {
 	res.render('students/new');
@@ -31,7 +32,7 @@ const create = async(req, res) => {
 
 const index = async (req, res, next) => {
   try {
-      const students = await Student.find({}).sort('name');
+      const students = await Student.find({});
       res.render('students/index', {students});
       console.log(students)
   }
@@ -40,13 +41,23 @@ const index = async (req, res, next) => {
   }};
 
   const show = async(req, res) =>{
-  const users = await User.find({})
-  const students = await Student.find({}); 
+    console.log(`!Student id ${req.params.id}`)
+
+  const users = await User.find({});
+
+  let students= await Student.find({}).populate('homeworks');
+  console.log(students);
+  students = students.map(student => {
+    let totalGrade = student.homeworks.reduce((total, grade) => total + grade.gradeWaight, 0);
+    student.grade=student.homeworks.length !==0? totalGrade*100/(student.homeworks.length*10):0
+    return student
+  })
+
   res.render('students/show', { title: 'Student details', students ,users});
   }
 
   
-  const getStudents = async (req, res) => {
+    const getStudents = async (req, res) => {
     try {
       const students = await Student.find().sort('name')
       res.render('students/attendance', { students }); 

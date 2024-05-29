@@ -1,5 +1,3 @@
-
-
 <%- include('../partials/header') %>
 <link rel='stylesheet' href='/stylesheets1/style.css' />
 
@@ -36,7 +34,7 @@
     <% students.forEach( Student => { %>
       <tr>
       <td><%= Student.name %></td>
-      <td><%= Student.total %></td>
+      <td><%= Student.grade %></td>
       <td><a href="/homeworks/<%= Student._id %>">Grade Report</a></td>
       <td><%= Student.attendanceCount %></td>
       <td><a href="/students">Details</a></td>
@@ -48,5 +46,3 @@
 </table>
 </div>
 <%- include('../partials/footer') %>
-
-

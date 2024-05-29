@@ -24,16 +24,9 @@ const getAllHomeworks = () => {
 const getHomeworkById = (id) => {
 	return HomeworkModel.findById(id);
 };
-const updateHomework = (id, homeWorkData) => {
-	return HomeworkModel.findByIdAndUpdate(id, homeWorkData);
-};
-const deleteHomework = (homeWorkData) => {
-	return HomeworkModel.findByIdAndDelete(homeWorkData);
-};
+
 module.exports = {
 	createHomework,
 	getAllHomeworks,
 	getHomeworkById,
-	updateHomework,
-	deleteHomework,
 };
