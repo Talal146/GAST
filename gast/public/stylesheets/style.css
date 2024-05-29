@@ -1,33 +1,39 @@
 body {
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
-  background-image: url(https://png.pngtree.com/thumb_back/fh260/back_pic/03/82/23/2357c6c0ce98502.jpg);
+  background-image: url(https://images.template.net/111221/free-plain-chalkboard-background-w9n29.jpg);
   background-repeat: no-repeat;
-  background-size:cover ;
+  background-size: 100% 100%;
+  min-height: 100vh;
 }
-
+h1 {
+  text-align: center;
+}
 a {
   color: #00b7ff;
 }
 
-img {
-  position: relative;
-  margin-top: 6vh;
-  height: 12vh;
-  width: 12vh;
-}
-
-div > h2 {
+h3,
+h2,
+.software {
+  display: flex;
+  justify-content: center;
   text-align: center;
+  color: #fff;
 }
 
-.database {
-  margin-left: 50vh;
-  margin-top: 5vh;
+#course {
+  display: list-item;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 }
-
-.un {
-  margin-left: 100vh;
-  margin-top: -30vh;
+#course li {
+  display: grid;
+  top: 40%;
+  left: 40%;
+  justify-content: center;
+  block-size: 40px;
+  align-items: center;
 }
 
 nav {
@@ -35,37 +41,370 @@ nav {
   box-shadow: 0px 0px 30px rgba(227, 228, 237, o.37);
   border: 2px solid rgba(255, 255, 255, 0.18);
 }
-
+nav ul {
+  padding: 0 10px;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
 nav ul li {
-  display: inline-block;
-  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
 }
 
 nav ul li a {
   color: #fff;
   text-decoration: none;
 }
-
-
-.table-style {
-  width: 60%;
-  border-collapse: collapse;
-  margin: 0 auto;
-}
-
-.table-style th,
-.table-style td {
+table td {
   padding: 20px;
+  margin: 40px;
   text-align: center;
   border: 1px solid #ccc;
-}
-
-.table-style thead th {
-  background-color: #f0f0f0;
   font-weight: bold;
+  color: #ccc;
 }
 
 .table-style tbody td {
   background-color: #ffffff;
 }
+nav li a img {
+  width: 35px;
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+}
+.mainpagebtn {
+  position: fixed;
+  left: 45%;
+  top: 70%;
+  padding: 17px 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 0;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+}
+.mainpagebtn:active {
+  letter-spacing: 3px;
+  background-color: rgb(52, 72, 61, 1);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(52, 72, 61, 1) 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+.mainpagebtn:hover {
+  letter-spacing: 3px;
+  background-color: rgb(52, 72, 61, 1);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(52, 72, 61, 1) 0px 7px 29px 0px;
+}
+.instable {
+  position: absolute;
+  left: 5%;
+}
+.studtable {
+  position: absolute;
+  left: 30%;
+  top: 40%;
+}
 
+.hiddintable {
+  padding: 20px;
+  color: #fff;
+  text-align: left;
+  width: 60%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.hiddintable tr:last-child {
+  border-bottom: 1px solid black;
+}
+
+.student-details-table {
+  width: 60%;
+  color: #ffffff;
+}
+
+.student-tables-cont {
+  width: 100%;
+  display: flex;
+  max-height: 100dvh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inst-det-header {
+  width: 60%;
+  display: flex;
+  justify-content: start;
+}
+
+.inst-det-header h2 {
+  margin: 20px;
+}
+
+.new-std-form-cont {
+  width: 100%;
+  height: calc(100vh - 200px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-std-form label {
+  display: block;
+  margin: 5px 0;
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+.new-std-form .checkbox {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.new-std-form .checkbox label,
+.new-std-form .checkbox input {
+  display: inline;
+}
+
+.std-att-tble-cont {
+  width: 100%;
+  height: calc(100dvh - 200px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.std-att-tble-cont form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.std-att-tble-cont table {
+  width: 60%;
+}
+
+.std-att-tble-cont table,
+.std-att-tble-cont table th,
+.std-att-tble-cont table td,
+.std-att-tble-cont table tr,
+.std-att-tble-cont table tbody {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+.std-att-tble-cont button {
+  margin-top: 25px;
+  padding: 15px 25px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.homework-std-name {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.homework-std-name h1 {
+  color: #ffffff;
+  margin: 50px;
+}
+
+.homework-std-name .add-grade-cont {
+  margin: 50px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.homework-std-name .add-grade-cont button {
+  padding: 15px 25px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.hws-table-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hws-table-container table {
+  table-layout: fixed;
+  width: 80%;
+  color: #ffffff;
+}
+
+.hws-table-container table th,
+td {
+  width: 20%; /* Adjust percentage for other columns */
+}
+
+.hws-table-container table td:last-child {
+  width: 10%; /* Increase width for last column */
+}
+
+.stds-list-container {
+  width: 100%;
+  height: calc(100vh - 200px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stds-list-container table {
+  width: 60%;
+  color: #ffffff;
+}
+
+.new-hw-cont {
+  width: 100%;
+  height: calc(100vh - 250px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.new-hw-cont form label {
+  display: block;
+  margin: 5px 0;
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+.new-hw-cont form input,
+.new-hw-cont form select {
+  width: 100%;
+}
+
+.new-hw-cont form .new-hm-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-hw-cont form .new-hm-btn button {
+  margin-top: 20px;
+  padding: 15px 25px;
+  border-radius: 15px;
+}
+
+.new-instrc-form-cont {
+  width: 100%;
+  height: calc(100vh - 200px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-instrc-form-cont form label {
+  display: block;
+  margin: 5px 0;
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+.new-instrc-form-cont form .new-inst-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-instrc-form-cont form .new-inst-btn button {
+  margin-top: 20px;
+  padding: 15px 25px;
+  border-radius: 15px;
+}
+
+.new-instrc-form-cont form .checkbox {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.new-instrc-form-cont form .checkbox label,
+.new-instrc-form-cont form .checkbox input {
+  display: inline;
+}
+
+.new-std-form-cont form .new-std-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-std-form-cont form .new-std-btn button {
+  margin-top: 20px;
+  padding: 15px 25px;
+  border-radius: 15px;
+}
+
+.std-edit-tble-cont {
+  width: 100%;
+  height: calc(100vh - 250px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.std-edit-tble-cont table {
+  color: #ffffff;
+}
+
+.std-edit-tble-cont form label {
+  display: block;
+  margin: 5px 0;
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+.std-edit-tble-cont form .edt-edit-btns {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.std-edit-tble-cont form .edt-edit-btns button {
+  margin-top: 20px;
+  padding: 15px 25px;
+  border-radius: 15px;
+}
+
+.std-edit-tble-cont form .checkbox {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.std-edit-tble-cont form .checkbox label,
+.std-edit-tble-cont form .checkbox input {
+  display: inline;
+}

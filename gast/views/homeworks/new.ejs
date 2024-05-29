@@ -1,24 +1,34 @@
 <%- include('../partials/header') %>
-<form action="/homeworks/" method="POST">
-  <h2>Add a New Task</h2>
-  <label for="student">Select Student:</label>
-  <select name="student" id="student">
+<div class="new-hw-cont">
+  <h2>Add a New Homework</h2>
+  <form action="/homeworks" method="POST">
+    <label for="student">Select Student:</label>
+    <select name="student" id="student">
       <% students.forEach(student => { %>
-          <option value="<%= student._id %>"><%= student.name %></option>
+      <option value="<%= student._id %>"><%= student.name %></option>
       <% }); %>
-  </select>
-  <ul>
-  <li><label for="name">Name:</li>
-    <input id="name" type="text" name="name">
-  </label><br>
-  <li><label>deliverTime:</li>
-    <input id="deliverTime" type="date" name="deliverTime">
-  </label><br>
-  <li><label for ="description">description</li>
-    <input id="description" type="text" name="description">
-  <li><label>gradeWaight:<li>
-    <input id="gradeWaight" type="number" name="gradeWaight"> </label><br></li>
-  <button id="submit" type="submit">ADD GRADE</button>
-</ul>
-</form>
+    </select>
+
+    <label for="name">Name:</label>
+    <input id="name" type="text" name="name" />
+
+    <br />
+
+    <label>deliverTime:</label>
+    <input id="deliverTime" type="date" name="deliverTime" />
+
+    <br />
+
+    <label for="description">description</label>
+    <input id="description" type="text" name="description" />
+
+    <label>gradeWaight:</label>
+    <input id="gradeWaight" type="number" name="gradeWaight" />
+
+    <br />
+
+    <div class="new-hm-btn"><button id="submit" type="submit">ADD GRADE</button></div>
+  </form>
+</div>
+<%- include('../partials/footer') %>
 

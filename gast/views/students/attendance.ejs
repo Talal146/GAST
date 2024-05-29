@@ -1,5 +1,7 @@
 <%- include('../partials/header') %>
 <% if (students) { %>
+  <div class="std-att-tble-cont">
+    <form action="/students/attendance" method="POST">
   <table class="table-style">
     <thead>
       <tr>
@@ -8,23 +10,19 @@
       </tr>
     </thead>
     <tbody>
-      <form action="/students/attendance" method="POST">
         <% students.forEach((student) => { %>
           <tr>
-            <td><%= student.name %></td>
+            <td><%=student.name %></td>
             <td>
-              <input type="checkbox" name="<%= student._id %>" value="true"> Present
+              <input type="checkbox" name="<%=student._id %>" value="true"> Present
             </td>
           </tr>
         <% }); %>
-        <tr>
-          <td colspan="2">
-            <button id="submit" type="submit">ADD ATTENDANCE</button>
-          </td>
-        </tr>
-      </form>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+    <button id="submit" type="submit">ADD ATTENDANCE</button>
+  </form>
+  </div>
   <% } else { %>
     <p>No students found.</p>
   <% } %>

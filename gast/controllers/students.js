@@ -57,7 +57,7 @@ const index = async (req, res, next) => {
   }
 
   
-  const getStudents = async (req, res) => {
+    const getStudents = async (req, res) => {
     try {
       const students = await Student.find().sort('name')
       res.render('students/attendance', { students }); 
@@ -70,20 +70,23 @@ const index = async (req, res, next) => {
   const submitAttendance = async (req, res) => {
     try {
       const attendanceStatus = req.body;
-      const updatedStudents = await Promise.all(
+      console.log(attendanceStatus);
+      await Promise.all(
         Object.entries(attendanceStatus).map(async ([studentId, attendance]) => {
           const student = await Student.findById(studentId);
-          if (!student) return false; 
-          student.attendance = attendance === 'true';
-          await student.save();
-          return student;
+          await student.updateAttendance(attendance === 'true');
+          student.save()
+
         })
-      ) 
-    res.render("students/attendance", { students: updatedStudents });
+    
+      );  
+  
+    
+    res.redirect("/students/details")
     } catch (error) {
       console.error(error);
-      res.status(500).send('Error updating attendance!');
-    }};
+    }
+  }
 
 async function editStudent(req, res) {
     const student = await Student.findById(req.params.id);
