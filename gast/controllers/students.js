@@ -62,13 +62,10 @@ const index = async (req, res, next) => {
       const updatedStudents = await Promise.all(
         Object.entries(attendanceStatus).map(async ([studentId, attendance]) => {
           const student = await Student.findById(studentId);
-          if (!student) return false; 
           await student.updateAttendance(attendance === 'true');
           student.save()
-          return student;
-        })
 
-  
+        })
     
       );  
   
