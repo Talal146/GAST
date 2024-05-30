@@ -32,7 +32,7 @@
 
 ## ![Screenshot](Screenshot1.png)
 
-## ![Screenshot](Screenshot2.png)
+## ![Screenshot](Screenshot 2.png)
 
 ---
 
