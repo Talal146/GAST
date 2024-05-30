@@ -34,10 +34,6 @@
 
 ## ![Screenshot](Screenshot2.png)
 
-## ![Screenshot](Screenshot3.png)
-
-## ![Screenshot](Screenshot4.png)
-
 ---
 
 ### **_Future Updats_**
@@ -49,4 +45,12 @@
 
 ### **_Credits_**
 
-#### _Coming soon_
+#### _w3schools:_ [w3schools](http://www.w3schools.com)
+
+#### _baamboozle:_ [baamboozle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
+
+### _stack overflow:_ [stackoverflow](https://stackoverflow.com/questions/49974119/how-to-execute-updates-in-parallel)
+
+### _Objectrocket:_ [Objectrockt](https://kb.objectrocket.com/mongo-db/how-to-add-instance-methods-with-mongoose-236)
+
+### _freefrontend:_ [freefrontend](https://freefrontend.com/css-buttons/)

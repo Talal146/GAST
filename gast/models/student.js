@@ -35,6 +35,7 @@ const studentSchema = new Schema({
     this.attendanceCount = attended ? this.attendanceCount + 1 : this.attendanceCount; 
     await this.save(); 
   };
-  
-  
+
+
+
 module.exports = mongoose.model('Student', studentSchema);
